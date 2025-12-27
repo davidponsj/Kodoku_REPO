@@ -77,23 +77,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void TurnCheck(Vector2 moveInput)
     {
-        if (isFacingRight && moveInput.x < 0)
-            Turn(false);
-        else if (!isFacingRight && moveInput.x > 0)
-            Turn(true);
+        if (moveInput.x > 0 && !isFacingRight)
+            Turn();
+        else if (moveInput.x < 0 && isFacingRight)
+            Turn();
     }
 
-    private void Turn(bool turnRight)
+    private void Turn()
     {
-        if (turnRight)
+        if (isFacingRight)
         {
-            isFacingRight = true;
-            transform.Rotate(0f, 180f, 0f);
+            Vector3 rotator = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
+            transform.rotation = Quaternion.Euler(rotator);
+            isFacingRight = !isFacingRight;
         }
         else
         {
-            isFacingRight = false;
-            transform.Rotate(0f, -180f, 0f);
+            Vector3 rotator = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
+            transform.rotation = Quaternion.Euler(rotator);
+            isFacingRight = !isFacingRight;
         }
     }
 
