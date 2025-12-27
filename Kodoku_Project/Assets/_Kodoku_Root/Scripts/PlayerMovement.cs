@@ -41,15 +41,10 @@ public class PlayerMovement : MonoBehaviour
         else
             Mover(movementStats.airAcceleration, movementStats.airDeceleration, InputManager.movement);
 
-        Movimiento();
     }
 
     #region Movimiento
 
-    private void Movimiento()
-    {
-        rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
-    }
 
     private void Mover(float acceleration, float deceleration, Vector2 moveInput)
     {
