@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerMovementStats movementStats;
     [SerializeField] Collider2D bodyCollider;
     [SerializeField] Collider2D feetCollider;
+    float currentSpeed;
 
     Rigidbody2D rb;
 
@@ -23,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        currentSpeed = movementStats.initialWalkSpeed;
 
         if (movementStats == null)
             Debug.LogError("PlayerMovementStats no asignado", this);
@@ -52,23 +55,37 @@ public class PlayerMovement : MonoBehaviour
         {
             TurnCheck(moveInput);
 
-            Vector2 targetVelocity = Vector2.zero;
-            if (InputManager.runIsHeld)
-                targetVelocity = new Vector2(moveInput.x, 0f) * movementStats.maxRunSpeed;
-            else
-                targetVelocity = new Vector2(moveInput.x, 0f) * movementStats.maxWalkSpeed;
+            currentSpeed = Mathf.MoveTowards(
+                currentSpeed,
+                movementStats.maxWalkSpeed,
+                (movementStats.maxWalkSpeed / movementStats.timeToMaxSpeed) * Time.fixedDeltaTime
+            );
 
-            moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
+            Vector2 targetVelocity = new Vector2(moveInput.x * currentSpeed, 0f);
+
+            moveVelocity = Vector2.Lerp(
+                moveVelocity,
+                targetVelocity,
+                acceleration * Time.fixedDeltaTime
+            );
+
             rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
         }
-
         else if (moveInput == Vector2.zero)
         {
-            moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
+            
+            currentSpeed = 0f;
+
+            moveVelocity = Vector2.Lerp(
+                moveVelocity,
+                Vector2.zero,
+                deceleration * Time.fixedDeltaTime
+            );
+
             rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
         }
-
     }
+
 
     private void TurnCheck(Vector2 moveInput)
     {

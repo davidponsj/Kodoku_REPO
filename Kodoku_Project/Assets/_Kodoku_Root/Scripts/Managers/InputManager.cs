@@ -9,7 +9,6 @@ public class InputManager : MonoBehaviour
     public static bool jumpPressed;
     public static bool jumpIsHeld;
     public static bool jumpWasReleased;
-    public static bool runIsHeld;
 
     InputAction moveAction;
     InputAction jumpAction;
@@ -29,9 +28,8 @@ public class InputManager : MonoBehaviour
         jumpPressed = jumpAction.WasPressedThisFrame();
         jumpIsHeld = jumpAction.IsPressed();
         jumpWasReleased = jumpAction.WasReleasedThisFrame();
-        runIsHeld = runAction.IsPressed();
 
         // debug
-        Debug.Log("Move: " + movement + " | Run: " + runIsHeld + " | JumpPressed: " + jumpPressed);
+        Debug.Log("Move: " + movement + " | JumpPressed: " + jumpPressed);
     }
 }
