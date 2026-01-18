@@ -73,6 +73,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void OnDrawGizmos()
+    {
+        if (movementStats != null && feetCollider != null)
+            DrawJumpArc(moveVelocity.x, Color.blue);
+    }
+
+
     #region Movimiento
 
 
@@ -317,6 +324,69 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, verticalVelocity);
     }
 
+    #region Debug Visuals
+
+    private void DrawJumpArc(float moveSpeed, Color gizmoColor)
+    {
+        Vector2 startPosition = new Vector2(feetCollider.bounds.center.x, feetCollider.bounds.min.y);
+        Vector2 previousPosition = startPosition;
+        float speed = 0f;
+        if (movementStats.drawRight)
+        {
+            speed = moveSpeed;
+        }
+        else
+            speed = -moveSpeed;
+        Vector2 velocity = new Vector2(speed, movementStats.initialJumpVelocity);
+
+        Gizmos.color = gizmoColor;
+
+        float timeStep = 2 * movementStats.timeTillJumpApex / movementStats.arcResolution;
+
+        for (int i = 0; i < movementStats.visualizationSteps; i++)
+        {
+            float simulationTime = i * timeStep;
+            Vector2 displacement;
+            Vector2 drawPoint;
+
+            if (simulationTime < movementStats.timeTillJumpApex)
+            {
+                displacement = velocity * simulationTime + 0.5f * new Vector2(0f, movementStats.Gravity) * simulationTime * simulationTime;
+            }
+            else if (simulationTime < movementStats.timeTillJumpApex + movementStats.apexHangTime)
+            {
+                float apexTime = simulationTime - movementStats.timeTillJumpApex;
+                displacement = velocity * movementStats.timeTillJumpApex + 0.5f * new Vector2(0f, movementStats.Gravity) * movementStats.timeTillJumpApex * movementStats.timeTillJumpApex;
+                displacement += new Vector2(speed, 0) * apexTime;
+            }
+            else
+            {
+                float descendTime = simulationTime - (movementStats.timeTillJumpApex + movementStats.apexHangTime);
+                displacement = velocity * movementStats.timeTillJumpApex + 0.5f * new Vector2(0f, movementStats.Gravity) * movementStats.timeTillJumpApex * movementStats.timeTillJumpApex;
+                displacement += new Vector2(speed, 0) * movementStats.apexHangTime;
+                displacement += new Vector2(speed, 0) * descendTime + 0.5f * new Vector2(0f, movementStats.Gravity) * descendTime * descendTime;
+            }
+
+            drawPoint = startPosition + displacement;
+
+            if (movementStats.stopOnCollision)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(previousPosition, drawPoint - previousPosition, Vector2.Distance(previousPosition, drawPoint), movementStats.groundLayer);
+                if (hit.collider != null)
+                {
+                    Gizmos.DrawLine(previousPosition, hit.point);
+                    break;
+                }
+            }
+
+            Gizmos.DrawLine(previousPosition, drawPoint);
+            previousPosition = drawPoint;
+        }
+
+    }
+
+    #endregion
+
     #endregion
 
     #region Colisiones
@@ -401,4 +471,5 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #endregion
+
 }
