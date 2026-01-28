@@ -20,7 +20,13 @@ public class StatsMovement : ScriptableObject
     [Header("GroundColissionCheck")]
     public LayerMask groundLayer;
 
-    [Header("Saltar")]
+    [Header("Head Bump Slide")]
+    public bool useHeadBumpSlide = true;
+    [Range(1f, 50f)] public float headBumpSlideSpeed = 13f;
+    [Range(0.01f, 0.5f)] public float headBumpBoxWidth = 0.3f;
+    [Range(0.01f, 0.5f)] public float headBumpBoxHeight = 0.1f;
+
+    [Header("Salto")]
     public float jumpHeight = 6.5f;
     [Range(1f, 1.1f)] public float jumpHeightCompensationFactor = 1.054f;
     public float timeTillJumpApex = 0.35f;
@@ -45,6 +51,7 @@ public class StatsMovement : ScriptableObject
     public bool debugShowIsGrounded;
     public bool debugShowHeadRays;
     public bool debugShowWallHit;
+    public bool debugShowHeadBumpBox;
     [Range(0f, 1f)] public float extraRayDebugDistance = 0.25f;
 
     [Header("Visualizacion de salto")]

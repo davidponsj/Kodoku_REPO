@@ -19,6 +19,10 @@ public class MovementController : MonoBehaviour
     public bool isCollidingLeft { get; private set; }
     public bool isCollidingRight { get; private set; }
 
+    public int HeadBumpSlideDirection { get; private set; }
+    public bool isHittingCeilingCenter { get; private set; }
+    public bool isHittingBothCorners { get; private set; }
+
     PlayerMovement playerMovement;
     Rigidbody2D rb;
 
@@ -47,6 +51,7 @@ public class MovementController : MonoBehaviour
     {
         UpdateRayCastCorners();
         ResetCollisionStates();
+        CheckCeilingBoxCast(velocity);
 
         ResolveHorizontalMovement(ref velocity);
         ResolveVerticalMovement(ref velocity);
@@ -60,6 +65,51 @@ public class MovementController : MonoBehaviour
         isCollidingBelow = false;
         isCollidingLeft = false;
         isCollidingRight = false;
+
+        HeadBumpSlideDirection = 0;
+        isHittingCeilingCenter = false;
+        isHittingBothCorners = false;
+    }
+
+    private void CheckCeilingBoxCast(Vector2 velocity)
+    {
+        if (velocity.y < 0f) return;
+        if (!moveStats.useHeadBumpSlide) return;
+
+        float boxCastDistance = Mathf.Abs(velocity.y) + CollisionPadding;
+        Vector2 boxSize = new Vector2(coll.bounds.size.x * moveStats.headBumpBoxWidth, moveStats.headBumpBoxHeight);
+        Vector2 boxOrigin = new Vector2(coll.bounds.center.x + velocity.x, coll.bounds.max.y);
+
+        RaycastHit2D hit = Physics2D.BoxCast(boxOrigin, boxSize, 0f, Vector2.up, boxCastDistance, moveStats.groundLayer);
+
+        if (hit)
+        {
+            isHittingCeilingCenter = true;
+        }
+
+        #region Debug visualization
+
+        if (moveStats.debugShowHeadBumpBox)
+        {
+            Vector2 drawCenter = boxOrigin + (Vector2.up * boxCastDistance / 2f);
+            Vector2 drawSize = new Vector2(boxSize.x, boxSize.y + boxCastDistance);
+            Vector2 halfSize = drawSize / 2f;
+
+            //4 corners
+            Vector2 topLeft = drawCenter + new Vector2(-halfSize.x, halfSize.y);
+            Vector2 topRight = drawCenter + new Vector2(halfSize.x, halfSize.y);
+            Vector2 bottomRight = drawCenter + new Vector2(halfSize.x, -halfSize.y);
+            Vector2 bottomLeft = drawCenter + new Vector2(-halfSize.x, -halfSize.y);
+
+            Color color = hit ? Color.green : Color.red;
+
+            Debug.DrawLine(topLeft, topRight, color);
+            Debug.DrawLine(topRight, bottomRight, color);
+            Debug.DrawLine(bottomRight, bottomLeft, color);
+            Debug.DrawLine(bottomLeft, topLeft, color);
+        }
+
+        #endregion
     }
 
     private void ResolveHorizontalMovement(ref Vector2 velocity)
@@ -106,6 +156,11 @@ public class MovementController : MonoBehaviour
         float directionY = Mathf.Sign(velocity.y);
         float rayLength = Mathf.Abs(velocity.y) + CollisionPadding;
 
+        bool hitLeftCorner = false;
+        bool hitRightCorner = false;
+
+
+
         for (int i = 0; i < numOfVerticalRays; i++)
         {
             Vector2 rayOrigin = (directionY == -1) ? RayCastCorners.bottomLeft : RayCastCorners.topLeft;
@@ -120,7 +175,31 @@ public class MovementController : MonoBehaviour
                 if (directionY == -1)
                     isCollidingBelow = true;
                 else if (directionY == 1)
+                {
                     isCollidingAbove = true;
+
+                    if (i == 0) hitLeftCorner = true;
+                    if (i == numOfVerticalRays - 1) hitRightCorner = true;
+
+                    if (moveStats.useHeadBumpSlide)
+                    {
+                        int slideDir = 0;
+                        if (i == 0) slideDir = 1;
+                        else if (i == numOfVerticalRays - 1) slideDir = -1;
+
+                        if (slideDir != 0)
+                        {
+                            Vector2 slideCheckRayOrigin = hit.point + Vector2.down * CollisionPadding * 2;
+                            float slideCheckRayLength = CollisionPadding * 2;
+                            RaycastHit2D slideCheckHit = Physics2D.Raycast(slideCheckRayOrigin, Vector2.right * slideDir, slideCheckRayLength, moveStats.groundLayer);
+
+                            if (!slideCheckHit)
+                            {
+                                HeadBumpSlideDirection = slideDir;
+                            }
+                        }
+                    }
+                }
             }
 
             #region Debug Visualization
@@ -152,6 +231,8 @@ public class MovementController : MonoBehaviour
 
             #endregion
         }
+
+        isHittingBothCorners = hitLeftCorner && hitRightCorner;
     }
 
     private void UpdateRayCastCorners()

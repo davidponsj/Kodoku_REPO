@@ -13,25 +13,21 @@ public class InputManager : MonoBehaviour
 
     InputAction moveAction;
     InputAction jumpAction;
-    InputAction runAction;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
-        runAction = playerInput.actions["Run"];
     }
 
     private void Update()
     {
         movement = moveAction.ReadValue<Vector2>();
+
         jumpPressed = jumpAction.WasPressedThisFrame();
         jumpIsHeld = jumpAction.IsPressed();
         jumpWasReleased = jumpAction.WasReleasedThisFrame();
-        runIsHeld = runAction.IsPressed();
-
-        // debug
-        Debug.Log("Move: " + movement + " | Run: " + runIsHeld + " | JumpPressed: " + jumpPressed);
     }
 }
