@@ -7,6 +7,7 @@ using System.Collections;
 public class StatsMovement : ScriptableObject
 {
     [Header("Caminar")]
+    [Range(0f, 1f)] public float moveThreshold = 0.25f;
     [Range(1f, 100f)] public float maxWalkSpeed = 12.5f;
     [Range(0.25f, 50f)] public float groundAcceleration = 5f;
     [Range(0.25f, 50f)] public float groundDeceleration = 20f;
@@ -18,9 +19,6 @@ public class StatsMovement : ScriptableObject
 
     [Header("GroundColissionCheck")]
     public LayerMask groundLayer;
-    public float groundDetectionRayLength = 0.02f;
-    public float headDetectionRayLength = 0.02f;
-    [Range(0f,1f)] public float headwidth= 0.75f;
 
     [Header("Saltar")]
     public float jumpHeight = 6.5f;
@@ -31,7 +29,7 @@ public class StatsMovement : ScriptableObject
     [Range(1, 5)] public int jumpsAllowed = 2;
 
     [Header("Jump Cut")]
-    [Range(0.02f, 0.3f)] public float timeForUpwardsCancel;
+    [Range(0.02f, 0.3f)] public float timeForUpwardsCancel = 0.027f;
 
     [Header("Jump Apex")]
     [Range(0.5f, 1f)] public float apexThreshold = 0.97f;
@@ -44,8 +42,10 @@ public class StatsMovement : ScriptableObject
     [Range(0f, 1f)] public float coyoteTime = 0.1f;
 
     [Header("Debug")]
-    public bool debugShowIsGroundedBox;
-    public bool debugShowHeadBumpBox;
+    public bool debugShowIsGrounded;
+    public bool debugShowHeadRays;
+    public bool debugShowWallHit;
+    [Range(0f, 1f)] public float extraRayDebugDistance = 0.25f;
 
     [Header("Visualizacion de salto")]
     public bool showWalkJumpArc;

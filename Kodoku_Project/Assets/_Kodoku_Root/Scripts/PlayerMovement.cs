@@ -6,23 +6,23 @@ public class PlayerMovement : MonoBehaviour
     //! VARIABLES
     [Header("Referencias")]
     public StatsMovement movementStats;
-    [SerializeField] Collider2D bodyCollider;
-    [SerializeField] Collider2D feetCollider;
+    [SerializeField] Collider2D coll;
 
     Rigidbody2D rb;
 
 //TODO MOVIMIENTO
-    Vector2 moveVelocity;
-    bool isFacingRight;
 
-//TODO COLISIONES
-    RaycastHit2D groundHit;
-    RaycastHit2D headHit;
-    bool isGrounded;
-    bool bumpedHead;
+    public bool isFacingRight { get; private set; }
+    public MovementController controller { get; private set; }
+    [HideInInspector] public Vector2 Velocity;
 
-//TODO SALTO
-    public float verticalVelocity { get; private set; }
+    //TODO INPUT
+    Vector2 moveInput;
+    bool runHeld;
+    bool jumpPressed;
+    bool jumpRelased;
+
+    //TODO SALTO
     bool isJumping;
     bool isFastFalling;
     bool isFalling;
@@ -45,75 +45,87 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        isFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
-
-        if (movementStats == null)
-            Debug.LogError("PlayerMovementStats no asignado", this);
-        if (bodyCollider == null)
-            Debug.LogError("Body Collider no asignado", this);
-        if (feetCollider == null)
-            Debug.LogError("Feet Collider no asignado", this);
+        controller = GetComponent<MovementController>();
     }
 
     private void Update()
     {
-        CountTimers();
-        JumpChecks();
+        moveInput = InputManager.movement;
+        runHeld = InputManager.runIsHeld;
+        if (InputManager.jumpPressed) jumpPressed = true;
+        if (InputManager.jumpWasReleased) jumpRelased = true;
+
+        CountTimers(Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
-        CollisionChecks();
-        Jump();
+        JumpChecks();
+        LandCheck();
 
-        if(isGrounded)
-            Mover(movementStats.groundAcceleration, movementStats.groundDeceleration, InputManager.movement);
-        else
-            Mover(movementStats.airAcceleration, movementStats.airDeceleration, InputManager.movement);
+        HandleHorizontalMovement(Time.fixedDeltaTime);
+        Jump(Time.fixedDeltaTime);
+        Fall(Time.fixedDeltaTime);
 
+        ClampVelocity();
+
+        controller.Move(Velocity * Time.fixedDeltaTime);
+
+        //reset inputs
+        jumpPressed = false;
+        jumpRelased = false;
+
+    }
+
+    private void ClampVelocity()
+    {
+        //TODO CLAMP VELOCIDAD DE CAIDA
+        Velocity.y = Mathf.Clamp(Velocity.y, -movementStats.maxFallSpeed, 50f);
     }
 
     private void OnDrawGizmos()
     {
-        if (movementStats != null && feetCollider != null)
-            DrawJumpArc(moveVelocity.x, Color.blue);
+        if (movementStats != null && coll != null)
+            DrawJumpArc(movementStats.maxWalkSpeed, Color.blue);
     }
 
 
     #region Movimiento
 
 
-    private void Mover(float acceleration, float deceleration, Vector2 moveInput)
+    private void HandleHorizontalMovement(float timeStep)
     {
-        if (moveInput != Vector2.zero)
+        TurnCheck(moveInput);
+        float targetVelocityX = 0f;
+
+        if (Mathf.Abs(moveInput.x) >= movementStats.moveThreshold)
         {
-            TurnCheck(moveInput);
-
-            Vector2 targetVelocity = Vector2.zero;
-            if (InputManager.runIsHeld)
-                targetVelocity = new Vector2(moveInput.x, 0f) * movementStats.maxRunSpeed;
-            else
-                targetVelocity = new Vector2(moveInput.x, 0f) * movementStats.maxWalkSpeed;
-
-            moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
-            rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
+            float moveDirection = Mathf.Sign(moveInput.x);
+            targetVelocityX = runHeld ? moveDirection * movementStats.maxRunSpeed : moveDirection * movementStats.maxWalkSpeed;
         }
 
-        else if (moveInput == Vector2.zero)
-        {
-            moveVelocity = Vector2.Lerp(moveVelocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
-            rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
-        }
+        float acceleration = controller.isGrounded() ? movementStats.groundAcceleration : movementStats.airAcceleration;
+        float deceleration = controller.isGrounded() ? movementStats.groundAcceleration : movementStats.airDeceleration;
 
+        if (Mathf.Abs(moveInput.x) >= movementStats.moveThreshold)
+        {
+            Velocity.x = Mathf.Lerp(Velocity.x, targetVelocityX, acceleration * timeStep);
+        }
+        else
+        {
+            Velocity.x = Mathf.Lerp(Velocity.x, 0f, deceleration * timeStep);
+        }
     }
 
     private void TurnCheck(Vector2 moveInput)
-    {
-        if (moveInput.x > 0 && !isFacingRight)
-            Turn();
-        else if (moveInput.x < 0 && isFacingRight)
-            Turn();
-    }
+            {
+                if (moveInput.x > 0 && !isFacingRight)
+                    Turn();
+                else if (moveInput.x < 0 && isFacingRight)
+                    Turn();
+            }
 
     private void Turn()
     {
@@ -133,339 +145,279 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
-    #region Salto
+    #region Caida
 
-    private void JumpChecks()
+    private void LandCheck()
     {
- //TODO BOTON APRETADO
-        if (InputManager.jumpPressed)
+ //TODO CAIDA
+        if ((isJumping || isFalling) && controller.isGrounded() && Velocity.y <= 0f)
         {
-        jumpBufferTimer = movementStats.jumpBufferTime;
-        jumpRelasedDuringBuffer = false;
-        }
+            ResetJumpValues();
 
- //TODO BOTON SOLTADO
-        if (InputManager.jumpWasReleased)
-        {
-            if(jumpBufferTimer > 0f)
-            {
-                    jumpRelasedDuringBuffer = true;
-            }
-
-            if(isJumping && verticalVelocity > 0f)
-            {
-                if (isPastApexThreshold)
-                {
-                    isPastApexThreshold = false;
-                    isFastFalling = true;
-                    fastFallTime = movementStats.timeForUpwardsCancel;
-                    verticalVelocity = Mathf.Min(verticalVelocity, 0f);
-
-                }
-                else
-                {
-                    isFastFalling = true;
-                    fastFallRelaseSpeed = verticalVelocity;
-                }
-            }
-        }
-
- //TODO INICIAR SALTO CON JUMP BUFFER Y COYOTE
-        if (jumpBufferTimer > 0f && !isJumping && (isGrounded || coyoteTimer > 0f))
-        {
-            InitiateJump(1);
-
-            if (jumpRelasedDuringBuffer)
-            {
-                isFastFalling = true;
-                fastFallRelaseSpeed = verticalVelocity;
-            }
-        }
-
-        //TODO DOBLE SALTO
-        else if (jumpBufferTimer > 0f && isJumping && numberOfJumpsUsed < movementStats.jumpsAllowed)
-        {
-            isFastFalling = false;
-            InitiateJump(1);
-        }
-
-        //TODO SALTO EN EL AIRE DESPUES DE COYOTE TIME
-        else if (jumpBufferTimer > 0f && isFalling && numberOfJumpsUsed < movementStats.jumpsAllowed - 1)
-        {
-            isFastFalling = false;
-            InitiateJump(2);
-        }
-
-        //TODO CAIDA
-        if ((isJumping || isFalling) && isGrounded && verticalVelocity <= 0f)
-        {
-            isJumping = false;
-            isFalling = false;
-            isFastFalling = false;
-            fastFallTime = 0f;
-            isPastApexThreshold = false;
             numberOfJumpsUsed = 0;
-
-            verticalVelocity = Physics2D.gravity.y;
         }
-
     }
 
-    private void InitiateJump(int jumpsToConsume)
+    private void Fall(float timeStep)
     {
+        //TODO GRAVEDAD NORMAL MIENTRAS CAE
         if (!isJumping)
-        {
-            isJumping = true;
-        }
-
-        jumpBufferTimer = 0f;
-        numberOfJumpsUsed += jumpsToConsume;
-        verticalVelocity = movementStats.initialJumpVelocity;
-    }
-
-
-    private void Jump()
-    {
- //TODO APLICAR VELOCIDAD MIENTRAS SALTA
-        if (isJumping)
-        {
-     //TODO CHECK HEAD BUMP
-            if (bumpedHead)
-            {
-                isFastFalling = true;
-            }
-
-     //TODO GRAVEDAD ASCENDIENDO
-            if (verticalVelocity >= 0f)
-            {
-         //TODO CONTROLES APEX 
-                apexPoint = Mathf.InverseLerp(movementStats.initialJumpVelocity, 0f, verticalVelocity);
-
-                if (apexPoint > movementStats.apexThreshold)
-                {
-                    if (!isPastApexThreshold)
-                    {
-                        isPastApexThreshold = true;
-                        timePastApexThreshold = 0f;
-                    }
-
-                    if (isPastApexThreshold)
-                    {
-                        timePastApexThreshold += Time.fixedDeltaTime;
-                        if (timePastApexThreshold < movementStats.apexHangTime)
-                        {
-                            verticalVelocity = Mathf.Max(verticalVelocity, -0.01f);
-                        }
-                        else
-                        {
-                            isPastApexThreshold = false;
-                            isJumping = false;
-                            isFalling = true;
-                        }
-                    }
-                }
-
-         //TODO GRAVEDAD DESCENDIENDO PERO SIN QUE HAYA PASADO APEX TRESHOLD
-                else
-                {
-                    verticalVelocity += movementStats.Gravity * Time.fixedDeltaTime;
-                    if (isPastApexThreshold)
-                    {
-                        isPastApexThreshold = false;
-                    }
-                }
-
-            }
-
-     //TODO GRAVEDAD DESCENDIENDO
-            else if (isFastFalling)
-            {
-                verticalVelocity += movementStats.Gravity  * movementStats.gravitOnRelaseMultiplier * Time.fixedDeltaTime;
-            }
-
-            else if (verticalVelocity < 0f)
-            {
-                if(!isFalling)
-                    isFalling = true;
-            }
-
-        }
-
- //TODO JUMP CUT
-        if (isFastFalling)
-        {
-            if (fastFallTime >= movementStats.timeForUpwardsCancel)
-            {
-                verticalVelocity += movementStats.Gravity * movementStats.gravitOnRelaseMultiplier * Time.fixedDeltaTime;
-            }
-            else if (fastFallTime < movementStats.timeForUpwardsCancel)
-            {
-                verticalVelocity = Mathf.Lerp(fastFallRelaseSpeed, 0f, fastFallTime / movementStats.timeForUpwardsCancel);
-            }
-
-            fastFallTime += Time.fixedDeltaTime;
-        }
-
- //TODO GRAVEDAD NORMAL MIENTRAS CAE
-        if (!isGrounded && !isJumping)
         {
             if (!isFalling)
             {
                 isFalling = true;
             }
 
-            verticalVelocity += movementStats.Gravity * Time.fixedDeltaTime;
+            Velocity.y += movementStats.Gravity * timeStep;
         }
-
-
- //TODO CLAMP VELOCIDAD DE CAIDA
-        verticalVelocity = Mathf.Clamp(verticalVelocity, -movementStats.maxFallSpeed, 50f);
-
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, verticalVelocity);
     }
 
-    #region Debug Visuals
 
-    private void DrawJumpArc(float moveSpeed, Color gizmoColor)
+    #endregion
+
+    #region Salto
+
+    private void ResetJumpValues()
     {
-        Vector2 startPosition = new Vector2(feetCollider.bounds.center.x, feetCollider.bounds.min.y);
-        Vector2 previousPosition = startPosition;
-        float speed = 0f;
-        if (movementStats.drawRight)
+        isJumping = false;
+        isFalling = false;
+        isFastFalling = false;
+        fastFallTime = 0f;
+        isPastApexThreshold = false;
+    }
+
+    private void JumpChecks()
         {
-            speed = moveSpeed;
-        }
-        else
-            speed = -moveSpeed;
-        Vector2 velocity = new Vector2(speed, movementStats.initialJumpVelocity);
-
-        Gizmos.color = gizmoColor;
-
-        float timeStep = 2 * movementStats.timeTillJumpApex / movementStats.arcResolution;
-
-        for (int i = 0; i < movementStats.visualizationSteps; i++)
-        {
-            float simulationTime = i * timeStep;
-            Vector2 displacement;
-            Vector2 drawPoint;
-
-            if (simulationTime < movementStats.timeTillJumpApex)
+     //TODO BOTON APRETADO
+            if (jumpPressed)
             {
-                displacement = velocity * simulationTime + 0.5f * new Vector2(0f, movementStats.Gravity) * simulationTime * simulationTime;
-            }
-            else if (simulationTime < movementStats.timeTillJumpApex + movementStats.apexHangTime)
-            {
-                float apexTime = simulationTime - movementStats.timeTillJumpApex;
-                displacement = velocity * movementStats.timeTillJumpApex + 0.5f * new Vector2(0f, movementStats.Gravity) * movementStats.timeTillJumpApex * movementStats.timeTillJumpApex;
-                displacement += new Vector2(speed, 0) * apexTime;
-            }
-            else
-            {
-                float descendTime = simulationTime - (movementStats.timeTillJumpApex + movementStats.apexHangTime);
-                displacement = velocity * movementStats.timeTillJumpApex + 0.5f * new Vector2(0f, movementStats.Gravity) * movementStats.timeTillJumpApex * movementStats.timeTillJumpApex;
-                displacement += new Vector2(speed, 0) * movementStats.apexHangTime;
-                displacement += new Vector2(speed, 0) * descendTime + 0.5f * new Vector2(0f, movementStats.Gravity) * descendTime * descendTime;
+            jumpBufferTimer = movementStats.jumpBufferTime;
+            jumpRelasedDuringBuffer = false;
             }
 
-            drawPoint = startPosition + displacement;
-
-            if (movementStats.stopOnCollision)
+     //TODO BOTON SOLTADO
+            if (jumpRelased)
             {
-                RaycastHit2D hit = Physics2D.Raycast(previousPosition, drawPoint - previousPosition, Vector2.Distance(previousPosition, drawPoint), movementStats.groundLayer);
-                if (hit.collider != null)
+                if(jumpBufferTimer > 0f)
                 {
-                    Gizmos.DrawLine(previousPosition, hit.point);
-                    break;
+                        jumpRelasedDuringBuffer = true;
+                }
+
+                if(isJumping && Velocity.y > 0f)
+                {
+                    if (isPastApexThreshold)
+                    {
+                        isPastApexThreshold = false;
+                        isFastFalling = true;
+                        fastFallTime = movementStats.timeForUpwardsCancel;
+                        Velocity.y = Mathf.Min(Velocity.y, 0f);
+
+                    }
+                    else
+                    {
+                        isFastFalling = true;
+                        fastFallRelaseSpeed = Velocity.y;
+                    }
                 }
             }
 
-            Gizmos.DrawLine(previousPosition, drawPoint);
-            previousPosition = drawPoint;
+     //TODO INICIAR SALTO CON JUMP BUFFER Y COYOTE
+            if (jumpBufferTimer > 0f && !isJumping && (controller.isGrounded() || coyoteTimer > 0f))
+            {
+                InitiateJump(1);
+
+                if (jumpRelasedDuringBuffer)
+                {
+                    isFastFalling = true;
+                    fastFallRelaseSpeed = Velocity.y;
+                }
+            }
+
+            //TODO DOBLE SALTO
+            else if (jumpBufferTimer > 0f && isJumping && numberOfJumpsUsed < movementStats.jumpsAllowed)
+            {
+                isFastFalling = false;
+                InitiateJump(1);
+            }
+
+            //TODO SALTO EN EL AIRE DESPUES DE COYOTE TIME
+            else if (jumpBufferTimer > 0f && isFalling && numberOfJumpsUsed < movementStats.jumpsAllowed - 1)
+            {
+                isFastFalling = false;
+                InitiateJump(2);
+            }
+
         }
 
-    }
+        private void InitiateJump(int jumpsToConsume)
+        {
+            if (!isJumping)
+            {
+                isJumping = true;
+            }
 
-    #endregion
+            jumpBufferTimer = 0f;
+            numberOfJumpsUsed += jumpsToConsume;
+            Velocity.y = movementStats.initialJumpVelocity;
+        }
 
-    #endregion
 
-    #region Colisiones
+        private void Jump(float timeStep)
+        {
+     //TODO APLICAR VELOCIDAD MIENTRAS SALTA
+            if (isJumping)
+            {
+         //TODO CHECK HEAD BUMP
+                if (controller.bumpedHead())
+                {
+                    isFastFalling = true;
+                }
 
-    private void IsGrounded()
-    {
-        Vector2 boxCastOrigin = new Vector2(feetCollider.bounds.center.x, feetCollider.bounds.min.y);
-        Vector2 boxCastSize = new Vector2(feetCollider.bounds.size.x, movementStats.groundDetectionRayLength);
+         //TODO GRAVEDAD ASCENDIENDO
+                if (Velocity.y >= 0f)
+                {
+             //TODO CONTROLES APEX 
+                    apexPoint = Mathf.InverseLerp(movementStats.initialJumpVelocity, 0f, Velocity.y);
 
-        groundHit = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down, movementStats.groundDetectionRayLength, movementStats.groundLayer);
-        if (groundHit.collider != null)
-            isGrounded = true;
-        else
-            isGrounded = false;
+                    if (apexPoint > movementStats.apexThreshold)
+                    {
+                        if (!isPastApexThreshold)
+                        {
+                            isPastApexThreshold = true;
+                            timePastApexThreshold = 0f;
+                        }
+
+                        if (isPastApexThreshold)
+                        {
+                            timePastApexThreshold += timeStep;
+                            if (timePastApexThreshold < movementStats.apexHangTime)
+                            {
+                                Velocity.y = Mathf.Max(Velocity.y, -0.01f);
+                            }
+                            else
+                            {
+                                isPastApexThreshold = false;
+                                isJumping = false;
+                                isFalling = true;
+                            }
+                        }
+                    }
+
+             //TODO GRAVEDAD DESCENDIENDO PERO SIN QUE HAYA PASADO APEX TRESHOLD
+                    else if (!isFastFalling)
+                    {
+                        Velocity.y += movementStats.Gravity * timeStep;
+                        if (isPastApexThreshold)
+                        {
+                            isPastApexThreshold = false;
+                        }
+                    }
+
+                }
+
+         //TODO GRAVEDAD DESCENDIENDO
+                else if (isFastFalling)
+                {
+                    Velocity.y += movementStats.Gravity  * movementStats.gravitOnRelaseMultiplier * timeStep;
+                }
+
+                else if (Velocity.y < 0f)
+                {
+                    if(!isFalling)
+                        isFalling = true;
+                }
+
+            }
+
+     //TODO JUMP CUT
+            if (isFastFalling)
+            {
+                if (fastFallTime >= movementStats.timeForUpwardsCancel)
+                {
+                    Velocity.y += movementStats.Gravity * movementStats.gravitOnRelaseMultiplier * timeStep;
+                }
+                else if (fastFallTime < movementStats.timeForUpwardsCancel)
+                {
+                    Velocity.y = Mathf.Lerp(fastFallRelaseSpeed, 0f, fastFallTime / movementStats.timeForUpwardsCancel);
+                }
+
+                fastFallTime += timeStep;
+            }
+        }
 
         #region Debug Visuals
-        if (movementStats.debugShowIsGroundedBox)
-        {
-            Color rayColor;
-            if (isGrounded)
-                rayColor = Color.green;
-            else
-                rayColor = Color.red;
 
-            Debug.DrawRay(new Vector2(boxCastOrigin.x - boxCastSize.x / 2, boxCastOrigin.y), Vector2.down * movementStats.groundDetectionRayLength, rayColor);
-            Debug.DrawRay(new Vector2(boxCastOrigin.x + boxCastSize.x / 2, boxCastOrigin.y), Vector2.down * movementStats.groundDetectionRayLength, rayColor);
-            Debug.DrawRay(new Vector2(boxCastOrigin.x - boxCastSize.x / 2, boxCastOrigin.y - movementStats.groundDetectionRayLength), Vector2.right * boxCastSize, rayColor);
+        private void DrawJumpArc(float moveSpeed, Color gizmoColor)
+        {
+            Vector2 startPosition = new Vector2(coll.bounds.center.x, coll.bounds.min.y);
+            Vector2 previousPosition = startPosition;
+            float speed = 0f;
+            if (movementStats.drawRight)
+            {
+                speed = moveSpeed;
+            }
+            else
+                speed = -moveSpeed;
+            Vector2 velocity = new Vector2(speed, movementStats.initialJumpVelocity);
+
+            Gizmos.color = gizmoColor;
+
+            float timeStep = 2 * movementStats.timeTillJumpApex / movementStats.arcResolution;
+
+            for (int i = 0; i < movementStats.visualizationSteps; i++)
+            {
+                float simulationTime = i * timeStep;
+                Vector2 displacement;
+                Vector2 drawPoint;
+
+                if (simulationTime < movementStats.timeTillJumpApex)
+                {
+                    displacement = velocity * simulationTime + 0.5f * new Vector2(0f, movementStats.Gravity) * simulationTime * simulationTime;
+                }
+                else if (simulationTime < movementStats.timeTillJumpApex + movementStats.apexHangTime)
+                {
+                    float apexTime = simulationTime - movementStats.timeTillJumpApex;
+                    displacement = velocity * movementStats.timeTillJumpApex + 0.5f * new Vector2(0f, movementStats.Gravity) * movementStats.timeTillJumpApex * movementStats.timeTillJumpApex;
+                    displacement += new Vector2(speed, 0) * apexTime;
+                }
+                else
+                {
+                    float descendTime = simulationTime - (movementStats.timeTillJumpApex + movementStats.apexHangTime);
+                    displacement = velocity * movementStats.timeTillJumpApex + 0.5f * new Vector2(0f, movementStats.Gravity) * movementStats.timeTillJumpApex * movementStats.timeTillJumpApex;
+                    displacement += new Vector2(speed, 0) * movementStats.apexHangTime;
+                    displacement += new Vector2(speed, 0) * descendTime + 0.5f * new Vector2(0f, movementStats.Gravity) * descendTime * descendTime;
+                }
+
+                drawPoint = startPosition + displacement;
+
+                if (movementStats.stopOnCollision)
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(previousPosition, drawPoint - previousPosition, Vector2.Distance(previousPosition, drawPoint), movementStats.groundLayer);
+                    if (hit.collider != null)
+                    {
+                        Gizmos.DrawLine(previousPosition, hit.point);
+                        break;
+                    }
+                }
+
+                Gizmos.DrawLine(previousPosition, drawPoint);
+                previousPosition = drawPoint;
+            }
+
         }
 
         #endregion
-    }
-
-    private void BumpedHead()
-    {
-        Vector2 boxCastOrigin = new Vector2(feetCollider.bounds.center.x, bodyCollider.bounds.max.y);
-        Vector2 boxCastSize = new Vector2(feetCollider.bounds.size.x * movementStats.headwidth, movementStats.headDetectionRayLength);
-
-        headHit = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.up, movementStats.headDetectionRayLength, movementStats.groundLayer);
-        if (headHit.collider != null)
-            bumpedHead = true;
-        else
-            bumpedHead = false;
-
-        #region Debug Visuals
-
-        if (movementStats.debugShowHeadBumpBox)
-        {
-            float headWidth = movementStats.headwidth;
-
-            Color rayColor;
-            if(bumpedHead)
-                rayColor = Color.green;
-            else
-                rayColor = Color.red;
-
-            Debug.DrawRay(new Vector2(boxCastOrigin.x - boxCastSize.x / 2 * headWidth, boxCastOrigin.y), Vector2.up * movementStats.headDetectionRayLength, rayColor);
-            Debug.DrawRay(new Vector2(boxCastOrigin.x + (boxCastSize.x / 2) * headWidth, boxCastOrigin.y), Vector2.up * movementStats.headDetectionRayLength, rayColor);
-            Debug.DrawRay(new Vector2(boxCastOrigin.x - boxCastSize.x / 2 * headWidth, boxCastOrigin.y + movementStats.headDetectionRayLength), Vector2.right * boxCastSize.x * headWidth, rayColor);
-        }
 
         #endregion
-    }
-
-    private void CollisionChecks()
-    {
-        IsGrounded();
-        BumpedHead();
-    }
-
-    #endregion
 
     #region Temporizadores
 
-    private void CountTimers()
+    private void CountTimers(float timeStep)
     {
-        jumpBufferTimer -= Time.deltaTime;
+        jumpBufferTimer -= timeStep;
 
-        if(!isGrounded)
-            coyoteTimer -= Time.deltaTime;
+        if(!controller.isGrounded())
+            coyoteTimer -= timeStep;
         else
             coyoteTimer = movementStats.coyoteTime;
     }
