@@ -47,6 +47,10 @@ public class StatsMovement : ScriptableObject
     [Header("Coyote Time")]
     [Range(0f, 1f)] public float coyoteTime = 0.1f;
 
+    [Header("Gravity")]
+    public float GravityUp = -20f;
+    public float GravityDown = -40f;
+
     [Header("Debug")]
     public bool debugShowIsGrounded;
     public bool debugShowHeadRays;
