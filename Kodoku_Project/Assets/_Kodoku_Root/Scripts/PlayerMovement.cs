@@ -305,15 +305,17 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            //TODO DOBLE SALTO
-            else if (jumpBufferTimer > 0f && isJumping && numberOfJumpsUsed < movementStats.jumpsAllowed)
-            {
-                isFastFalling = false;
-                InitiateJump(1);
-            }
+        //TODO DOBLE SALTO
+        else if (jumpBufferTimer > 0f
+                 && !controller.isGrounded()
+                 && numberOfJumpsUsed < movementStats.jumpsAllowed)
+        {
+            isFastFalling = false;
+            InitiateJump(1);
+        }
 
-            //TODO SALTO EN EL AIRE DESPUES DE COYOTE TIME
-            else if (jumpBufferTimer > 0f && isFalling && numberOfJumpsUsed < movementStats.jumpsAllowed - 1)
+        //TODO SALTO EN EL AIRE DESPUES DE COYOTE TIME
+        else if (jumpBufferTimer > 0f && isFalling && numberOfJumpsUsed < movementStats.jumpsAllowed - 1)
             {
                 isFastFalling = false;
                 InitiateJump(2);
