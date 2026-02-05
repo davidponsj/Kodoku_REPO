@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Referencias")]
     public StatsMovement movementStats;
     [SerializeField] Collider2D coll;
+    [SerializeField] Animator anim;
 
     Rigidbody2D rb;
 
@@ -82,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(Velocity * Time.fixedDeltaTime);
 
+        anim.SetBool("IsGrounded", controller.isGrounded()); anim.SetFloat("VerticalSpeed", Velocity.y);
+
         //reset inputs
         jumpPressed = false;
         jumpRelased = false;
@@ -126,6 +129,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Velocity.x = Mathf.Lerp(Velocity.x, 0f, deceleration * timeStep);
         }
+
+        bool isRunning = controller.isGrounded() && Mathf.Abs(moveInput.x) > movementStats.moveThreshold;
+        anim.SetBool("IsRunning", isRunning);
     }
 
     private void TurnCheck(Vector2 moveInput)
@@ -207,6 +213,8 @@ public class PlayerMovement : MonoBehaviour
                 isHeadBumpSliding = false;
 
                 ResetJumpValues();
+
+                anim.SetBool("IsGrounded", true);
 
                 numberOfJumpsUsed = 0;
             }
