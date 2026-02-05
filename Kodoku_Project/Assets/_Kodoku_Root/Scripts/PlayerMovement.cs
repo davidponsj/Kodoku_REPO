@@ -188,7 +188,8 @@ public class PlayerMovement : MonoBehaviour
             if (remainingHeight > 0f)
             {
                 float requiredVelocity =
-                    Mathf.Sqrt(2 * Mathf.Abs(movementStats.Gravity) * remainingHeight);
+                    Mathf.Sqrt(2 * Mathf.Abs(movementStats.GravityUp) * remainingHeight);
+
                 Velocity.y = requiredVelocity;
             }
 
@@ -221,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Velocity.y <= 0f)
             {
-                Velocity.y = -2f;
+                Velocity.y = -0.1f;
             }
         }
     }
@@ -236,7 +237,11 @@ public class PlayerMovement : MonoBehaviour
                 isFalling = true;
             }
 
-            Velocity.y += movementStats.Gravity * timeStep;
+            if (Velocity.y > 0f)
+                Velocity.y += movementStats.GravityUp * timeStep;
+            else
+                Velocity.y += movementStats.GravityDown * timeStep;
+
         }
     }
 
@@ -325,7 +330,7 @@ public class PlayerMovement : MonoBehaviour
 
         jumpBufferTimer = 0f;
         numberOfJumpsUsed += jumpsToConsume;
-        Velocity.y = movementStats.initialJumpVelocity;
+        Velocity.y = Mathf.Sqrt(2f * movementStats.jumpHeight * -movementStats.GravityUp);
 
         jumpStartY = rb.position.y;
     }
@@ -362,7 +367,9 @@ public class PlayerMovement : MonoBehaviour
                 if (Velocity.y >= 0f)
                 {
                     //TODO CONTROLES APEX 
-                    apexPoint = Mathf.InverseLerp(movementStats.initialJumpVelocity, 0f, Velocity.y);
+                    float jumpVelUp = Mathf.Sqrt(2f * movementStats.jumpHeight * -movementStats.GravityUp);
+                    apexPoint = Mathf.InverseLerp(jumpVelUp, 0f, Velocity.y);
+
 
                     if (apexPoint > movementStats.apexThreshold)
                     {
@@ -390,7 +397,11 @@ public class PlayerMovement : MonoBehaviour
                     //TODO GRAVEDAD DESCENDIENDO PERO SIN QUE HAYA PASADO APEX TRESHOLD
                     else if (!isFastFalling)
                     {
-                        Velocity.y += movementStats.Gravity * timeStep;
+                        if (Velocity.y > 0f)
+                            Velocity.y += movementStats.GravityUp * timeStep;
+                        else
+                            Velocity.y += movementStats.GravityDown * timeStep;
+
                         if (isPastApexThreshold)
                         {
                             isPastApexThreshold = false;
@@ -400,7 +411,8 @@ public class PlayerMovement : MonoBehaviour
                 //TODO GRAVEDAD DESCENDIENDO
                 else if (isFastFalling)
                 {
-                    Velocity.y += movementStats.Gravity * movementStats.gravitOnRelaseMultiplier * timeStep;
+                    Velocity.y += movementStats.GravityDown * movementStats.gravitOnRelaseMultiplier * timeStep;
+
                 }
 
                 else if (Velocity.y < 0f)
@@ -433,52 +445,41 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 startPosition = new Vector2(coll.bounds.center.x, coll.bounds.min.y);
         Vector2 previousPosition = startPosition;
-        float speed = 0f;
 
-        if (movementStats.drawRight)
-        {
-            speed = moveSpeed;
-        }
-        else
-        {
-            speed = -moveSpeed;
-        }
+        float direction = movementStats.drawRight ? 1f : -1f;
+        float timeStep = Time.fixedDeltaTime;
 
-        Vector2 velocity = new Vector2(speed, movementStats.initialJumpVelocity);
+        // Velocidad inicial REAL del salto
+        float initialVelY = Mathf.Sqrt(2f * movementStats.jumpHeight * -movementStats.GravityUp);
+
+        Vector2 velocity = new Vector2(moveSpeed * direction, initialVelY);
 
         Gizmos.color = gizmoColor;
 
-        float timeStep = 2 * movementStats.timeTillJumpApex / movementStats.arcResolution;
-
         for (int i = 0; i < movementStats.visualizationSteps; i++)
         {
-            float simulationTime = i * timeStep;
-            Vector2 displacement;
-            Vector2 drawPoint;
-
-            if (simulationTime < movementStats.timeTillJumpApex)
-            {
-                displacement = velocity * simulationTime + 0.5f * new Vector2(0f, movementStats.Gravity) * simulationTime * simulationTime;
-            }
-            else if (simulationTime < movementStats.timeTillJumpApex + movementStats.apexHangTime)
-            {
-                float apexTime = simulationTime - movementStats.timeTillJumpApex;
-                displacement = velocity * movementStats.timeTillJumpApex + 0.5f * new Vector2(0f, movementStats.Gravity) * movementStats.timeTillJumpApex * movementStats.timeTillJumpApex;
-                displacement += new Vector2(speed, 0) * apexTime;
-            }
+            // Aplicar gravedad EXACTA como en tu salto real
+            if (velocity.y > 0f)
+                velocity.y += movementStats.GravityUp * timeStep;
             else
-            {
-                float descendTime = simulationTime - (movementStats.timeTillJumpApex + movementStats.apexHangTime);
-                displacement = velocity * movementStats.timeTillJumpApex + 0.5f * new Vector2(0f, movementStats.Gravity) * movementStats.timeTillJumpApex * movementStats.timeTillJumpApex;
-                displacement += new Vector2(speed, 0) * movementStats.apexHangTime;
-                displacement += new Vector2(speed, 0) * descendTime + 0.5f * new Vector2(0f, movementStats.Gravity) * descendTime * descendTime;
-            }
+                velocity.y += movementStats.GravityDown * timeStep;
 
-            drawPoint = startPosition + displacement;
+            // Clamp de caída
+            velocity.y = Mathf.Max(velocity.y, -movementStats.maxFallSpeed);
 
+            // Mover punto
+            Vector2 newPosition = previousPosition + velocity * timeStep;
+
+            // Colisión opcional
             if (movementStats.stopOnCollision)
             {
-                RaycastHit2D hit = Physics2D.Raycast(previousPosition, drawPoint - previousPosition, Vector2.Distance(previousPosition, drawPoint), movementStats.groundLayer);
+                RaycastHit2D hit = Physics2D.Raycast(
+                    previousPosition,
+                    newPosition - previousPosition,
+                    Vector2.Distance(previousPosition, newPosition),
+                    movementStats.groundLayer
+                );
+
                 if (hit.collider != null)
                 {
                     Gizmos.DrawLine(previousPosition, hit.point);
@@ -486,10 +487,9 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            Gizmos.DrawLine(previousPosition, drawPoint);
-            previousPosition = drawPoint;
+            Gizmos.DrawLine(previousPosition, newPosition);
+            previousPosition = newPosition;
         }
-
     }
 
     #endregion
