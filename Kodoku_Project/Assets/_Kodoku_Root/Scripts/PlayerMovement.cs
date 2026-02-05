@@ -326,9 +326,12 @@ public class PlayerMovement : MonoBehaviour
     private void InitiateJump(int jumpsToConsume)
     {
         if (!isJumping)
-        {
             isJumping = true;
-        }
+
+        // RESETEO NECESARIO PARA EVITAR EL BUG
+        isFastFalling = false;
+        fastFallTime = 0f;
+        fastFallRelaseSpeed = 0f;
 
         jumpBufferTimer = 0f;
         numberOfJumpsUsed += jumpsToConsume;

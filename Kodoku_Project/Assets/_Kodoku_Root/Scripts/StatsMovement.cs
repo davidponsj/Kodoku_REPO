@@ -38,7 +38,7 @@ public class StatsMovement : ScriptableObject
     [Range(0.02f, 0.3f)] public float timeForUpwardsCancel = 0.027f;
 
     [Header("Jump Apex")]
-    [Range(0.5f, 1f)] public float apexThreshold = 0.97f;
+    [Range(0.01f, 5f)] public float apexThreshold = 0.97f;
     [Range(0.01f, 1f)] public float apexHangTime = 0.075f;
 
     [Header("Jump Buffer")]
