@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isFacingRight { get; private set; }
     public MovementController controller { get; private set; }
     [HideInInspector] public Vector2 Velocity;
+    float _fallSpeedYDampingChangeThreshold;
 
     //TODO INPUT
     Vector2 moveInput;
@@ -58,7 +59,10 @@ public class PlayerMovement : MonoBehaviour
         isFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<MovementController>();
+
+        _fallSpeedYDampingChangeThreshold = CameraManager.instance._fallSpeedDampingChangeThreshold;
     }
+
 
     private void Update()
     {
@@ -87,6 +91,23 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(Velocity * Time.fixedDeltaTime);
 
         anim.SetBool("IsGrounded", controller.isGrounded()); anim.SetFloat("VerticalSpeed", Velocity.y);
+
+        // --- CAMERA FALL DAMPING (CINEMACHINE 3) ---
+
+        if (Velocity.y < _fallSpeedYDampingChangeThreshold &&
+            !CameraManager.instance.IsLerpingYDamping &&
+            !CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpYDamping(true);
+        }
+
+        if (Velocity.y >= 0f &&
+            !CameraManager.instance.IsLerpingYDamping &&
+            CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpedFromPlayerFalling = false;
+            CameraManager.instance.LerpYDamping(false);
+        }
 
         //reset inputs
         jumpPressed = false;
