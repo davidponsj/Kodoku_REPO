@@ -8,10 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public StatsMovement movementStats;
     [SerializeField] Collider2D coll;
     [SerializeField] Animator anim;
+    [SerializeField] CameraFollowObject cameraFollowObject;
+
 
     Rigidbody2D rb;
 
 //TODO MOVIMIENTO
+
 
     public bool isFacingRight { get; private set; }
     public MovementController controller { get; private set; }
