@@ -58,6 +58,6 @@ public class CameraFollowObject : MonoBehaviour
     private float DetermineEndRotation()
     {
         _isFacingRight = _player.isFacingRight;
-        return _isFacingRight ? 180f : 0f;
+        return _isFacingRight ? 0f : 180f;
     }
 }

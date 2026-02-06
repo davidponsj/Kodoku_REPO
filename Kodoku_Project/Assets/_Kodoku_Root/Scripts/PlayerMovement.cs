@@ -159,7 +159,10 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(rotator);
             isFacingRight = !isFacingRight;
         }
+
+        cameraFollowObject.CallTurn();
     }
+
 
     private void HandleHeadBumpSlide()
     {
