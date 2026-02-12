@@ -1,8 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Splines.ExtrusionShapes;
-using static Unity.Collections.AllocatorManager;
-using static UnityEditorInternal.ReorderableList;
 
 public class PlayerMovement : MonoBehaviour
 {

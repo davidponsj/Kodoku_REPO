@@ -31,6 +31,9 @@ public class CombatStats : ScriptableObject
     [Header("Combat Layers")]
     public LayerMask enemyLayer;
 
+    [Header("Damage")] // NUEVO
+    public int baseDamage = 1; // Daño base del player (puede ser modificado por el Singleton)
+
     [Header("Debug")]
     public bool showHitboxGizmos = true;
 }

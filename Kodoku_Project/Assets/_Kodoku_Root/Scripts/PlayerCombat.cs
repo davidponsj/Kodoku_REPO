@@ -1,6 +1,4 @@
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -201,8 +199,20 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            Debug.Log($"Hit enemy: {hit.name}");
-            // TODO: hit.GetComponent<Enemy>().TakeDamage(damage);
+            // MODIFICADO - Aplicar daño al enemigo
+            Enemy enemy = hit.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                // Obtener el daño (puede ser modificado por GameManager/Singleton)
+                int damage = combatStats.baseDamage;
+
+                // TODO: Si tienes GameManager Singleton:
+                // int damage = GameManager.Instance.GetPlayerDamage();
+
+                enemy.TakeDamage(damage);
+                Debug.Log($"Player hit {hit.name} for {damage} damage!");
+            }
         }
 
         // POGO para ataque hacia abajo

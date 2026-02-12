@@ -1,7 +1,5 @@
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class InputManager : MonoBehaviour
 {
