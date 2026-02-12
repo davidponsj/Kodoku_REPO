@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -51,7 +51,7 @@ public class PlayerCombat : MonoBehaviour
         HandleAttackInput();
         UpdateAttack(Time.fixedDeltaTime);
 
-        // NUEVO - Solo detectar colisiones cuando la hitbox est� activa
+        // NUEVO - Solo detectar colisiones cuando la hitbox está activa
         if (hitboxActive)
         {
             CheckHitbox(activeHitboxDirection);
@@ -147,7 +147,7 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
-    // ===== NUEVOS M�TODOS - LLAMADOS POR ANIMATION EVENTS =====
+    // ===== NUEVOS MÉTODOS - LLAMADOS POR ANIMATION EVENTS =====
 
     /// <summary>
     /// Llamado por Animation Event para activar la hitbox
@@ -166,7 +166,7 @@ public class PlayerCombat : MonoBehaviour
         hitboxActive = false;
     }
 
-    // ===== FIN NUEVOS M�TODOS =====
+    // ===== FIN NUEVOS MÉTODOS =====
 
     void CheckHitbox(AttackDirection direction)
     {
@@ -199,20 +199,33 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            // MODIFICADO - Aplicar da�o al enemigo
-            Enemy enemy = hit.GetComponent<Enemy>();
+            // Obtener el daño
+            int damage = combatStats.baseDamage;
 
+            // ═══════════════════════════════════════════════════════════
+            // ✅ ARREGLADO - Detectar tanto Enemy como Boss
+            // ═══════════════════════════════════════════════════════════
+
+            // Intentar obtener componente Enemy (enemigos normales)
+            Enemy enemy = hit.GetComponent<Enemy>();
             if (enemy != null)
             {
-                // Obtener el da�o (puede ser modificado por GameManager/Singleton)
-                int damage = combatStats.baseDamage;
-
-                // TODO: Si tienes GameManager Singleton:
-                // int damage = GameManager.Instance.GetPlayerDamage();
-
                 enemy.TakeDamage(damage);
-                Debug.Log($"Player hit {hit.name} for {damage} damage!");
+                Debug.Log($"[PLAYER] Hit enemy {hit.name} for {damage} damage!");
+                continue; // Pasar al siguiente hit
             }
+
+            // Intentar obtener componente Boss (bosses)
+            Boss boss = hit.GetComponent<Boss>();
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
+                Debug.Log($"[PLAYER] Hit boss {hit.name} for {damage} damage!");
+                continue; // Pasar al siguiente hit
+            }
+
+            // Si llegamos aquí, el objeto tiene el layer Enemy pero no tiene componente Enemy ni Boss
+            Debug.LogWarning($"[PLAYER] Hit object {hit.name} on Enemy layer but it has no Enemy or Boss component!");
         }
 
         // POGO para ataque hacia abajo
@@ -256,7 +269,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (combatStats == null) return;
 
-        // MODIFICADO - Solo mostrar cuando hitbox est� activa
+        // MODIFICADO - Solo mostrar cuando hitbox está activa
         if (!combatStats.showHitboxGizmos || !hitboxActive) return;
 
         Vector2 hitboxSize = Vector2.zero;
