@@ -1,8 +1,8 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 /// <summary>
 /// Clase base para todos los enemigos.
-/// Maneja: vida, daÒo, detecciÛn, estados b·sicos, muerte
+/// Maneja: vida, da√±o, detecci√≥n, estados b√°sicos, muerte
 /// </summary>
 public abstract class Enemy : MonoBehaviour
 {
@@ -20,6 +20,11 @@ public abstract class Enemy : MonoBehaviour
     protected bool isDead;
     protected bool isTakingDamage;
     protected float damageTimer;
+
+    // NUEVO - Invulnerabilidad temporal para evitar m√∫ltiples golpes
+    protected bool isInvulnerable;
+    protected float invulnerabilityTimer;
+    protected float invulnerabilityDuration = 0.5f; // Medio segundo de invulnerabilidad
 
     // Patrulla
     protected Vector2 initialPosition;
@@ -69,7 +74,7 @@ public abstract class Enemy : MonoBehaviour
 
         CountTimers(Time.deltaTime);
 
-        // M·quina de estados
+        // M√°quina de estados
         switch (currentState)
         {
             case EnemyState.Patrol:
@@ -111,6 +116,14 @@ public abstract class Enemy : MonoBehaviour
         {
             EndAttack();
         }
+
+        // NUEVO - Timer de invulnerabilidad
+        if (invulnerabilityTimer > 0f)
+        {
+            invulnerabilityTimer -= deltaTime;
+            if (invulnerabilityTimer <= 0f)
+                isInvulnerable = false;
+        }
     }
 
     #region State Machine
@@ -122,25 +135,28 @@ public abstract class Enemy : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         float distanceToInitial = Vector2.Distance(transform.position, initialPosition);
 
-        // Si est· muy lejos del punto inicial  Return
+        // Si est√° muy lejos del punto inicial ‚Üí Return
         if (distanceToInitial > stats.returnDistance && currentState != EnemyState.Return)
         {
             ChangeState(EnemyState.Return);
             return;
         }
 
-        // DetecciÛn del player
+        // Detecci√≥n del player
         bool playerDetected = IsPlayerDetected();
 
         if (playerDetected)
         {
-            // Si est· en rango de ataque  Attack
-            if (distanceToPlayer <= stats.attackRange && attackCooldownTimer <= 0f)
+            // ARREGLADO - Comprobar si el player est√° en rango de ataque usando overlap
+            bool playerInAttackRange = IsPlayerInAttackRange();
+
+            // Si est√° en rango de ataque ‚Üí Attack
+            if (playerInAttackRange && attackCooldownTimer <= 0f)
             {
                 if (currentState != EnemyState.Attack)
                     ChangeState(EnemyState.Attack);
             }
-            // Si est· detectado pero no en rango  Chase
+            // Si est√° detectado pero no en rango ‚Üí Chase
             else if (currentState != EnemyState.Chase && currentState != EnemyState.Attack)
             {
                 ChangeState(EnemyState.Chase);
@@ -151,14 +167,29 @@ public abstract class Enemy : MonoBehaviour
             // Player no detectado
             if (currentState == EnemyState.Chase)
             {
-                // Si est· cerca del punto inicial  Patrol
+                // Si est√° cerca del punto inicial ‚Üí Patrol
                 if (distanceToInitial < 0.5f)
                     ChangeState(EnemyState.Patrol);
-                // Si est· lejos Return
+                // Si est√° lejos ‚Üí Return
                 else
                     ChangeState(EnemyState.Return);
             }
         }
+    }
+
+    // NUEVO - M√©todo para detectar si el player est√° en rango de ataque
+    protected virtual bool IsPlayerInAttackRange()
+    {
+        if (playerTransform == null) return false;
+
+        // Crear un √°rea de detecci√≥n para el ataque (m√°s grande que la hitbox)
+        Vector2 attackCheckOffset = new Vector2(isFacingRight ? stats.attackRange : -stats.attackRange, 0);
+        Vector2 attackCheckCenter = (Vector2)transform.position + attackCheckOffset;
+
+        // Usar un overlap circle para detectar al player
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackCheckCenter, stats.attackRange * 0.8f, stats.playerLayer);
+
+        return hits.Length > 0;
     }
 
     protected virtual void ChangeState(EnemyState newState)
@@ -168,15 +199,13 @@ public abstract class Enemy : MonoBehaviour
         switch (newState)
         {
             case EnemyState.Patrol:
-                anim.SetBool("IsWalking", true);
-                anim.SetBool("IsChasing", false);
+                // Estado de patrulla - no cambia animator parameters
                 break;
             case EnemyState.Chase:
-                anim.SetBool("IsChasing", true);
+                // Estado de persecuci√≥n - no cambia animator parameters
                 break;
             case EnemyState.Return:
-                anim.SetBool("IsWalking", true);
-                anim.SetBool("IsChasing", false);
+                // Estado de retorno - no cambia animator parameters
                 break;
             case EnemyState.Attack:
                 isAttacking = true;
@@ -187,8 +216,6 @@ public abstract class Enemy : MonoBehaviour
             case EnemyState.TakingDamage:
                 isTakingDamage = true;
                 damageTimer = stats.damageStunDuration;
-                anim.SetBool("IsWalking", false);
-                anim.SetBool("IsChasing", false);
                 break;
         }
     }
@@ -216,20 +243,7 @@ public abstract class Enemy : MonoBehaviour
         if (distance > stats.detectionRadius)
             return false;
 
-        // Check de direcciÛn (solo detecta si est· mirando al player)
-        if (stats.requiresLineOfSight)
-        {
-            bool playerIsOnRight = playerTransform.position.x > transform.position.x;
-
-            // Si el player est· a la derecha pero el enemigo mira izquierda no detecta
-            if (playerIsOnRight && !isFacingRight)
-                return false;
-
-            // Si el player est· a la izquierda pero el enemigo mira derecha no detecta
-            if (!playerIsOnRight && isFacingRight)
-                return false;
-        }
-
+        // SIMPLIFICADO - Siempre detecta si est√° en rango (sin check de direcci√≥n)
         return true;
     }
 
@@ -239,9 +253,13 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
-        if (isDead) return;
+        if (isDead || isInvulnerable) return; // ARREGLADO - evita m√∫ltiples golpes
 
         currentHealth -= damage;
+
+        // Activar invulnerabilidad temporal
+        isInvulnerable = true;
+        invulnerabilityTimer = invulnerabilityDuration;
 
         Debug.Log($"{gameObject.name} took {damage} damage. HP: {currentHealth}/{stats.maxHealth}");
 
@@ -255,15 +273,18 @@ public abstract class Enemy : MonoBehaviour
             ChangeState(EnemyState.TakingDamage);
 
             // Knockback
-            Vector2 knockbackDirection = (transform.position - playerTransform.position).normalized;
-            rb.linearVelocity = knockbackDirection * stats.damageKnockbackForce;
+            if (playerTransform != null)
+            {
+                Vector2 knockbackDirection = (transform.position - playerTransform.position).normalized;
+                rb.linearVelocity = knockbackDirection * stats.damageKnockbackForce;
+            }
         }
     }
 
     protected virtual void TakingDamageBehavior()
     {
-        // El enemigo est· stunneado, no hace nada
-        // El timer en CountTimers() manejar· la salida de este estado
+        // El enemigo est√° stunneado, no hace nada
+        // El timer en CountTimers() manejar√° la salida de este estado
     }
 
     protected virtual void Die()
@@ -282,7 +303,7 @@ public abstract class Enemy : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0f;
 
-        // Destruir despuÈs de la animaciÛn (ajusta el tiempo seg˙n tu animaciÛn)
+        // Destruir despu√©s de la animaci√≥n (ajusta el tiempo seg√∫n tu animaci√≥n)
         Destroy(gameObject, 1f);
     }
 
@@ -309,12 +330,23 @@ public abstract class Enemy : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            // AquÌ el Singleton de GameManager manejar· el daÒo al player
+            // Aqu√≠ el Singleton de GameManager manejar√° el da√±o al player
             Debug.Log($"Enemy hit player: {hit.name}");
 
             // TODO: GameManager.Instance.DamagePlayer(stats.damage);
             // Por ahora solo detecta
         }
+    }
+
+    /// <summary>
+    /// Llamado por Animation Event para desactivar la hitbox del ataque
+    /// OPCIONAL - puede usarse si quieres control expl√≠cito de cu√°ndo termina el hitbox
+    /// </summary>
+    public virtual void DeactivateAttackHitbox()
+    {
+        // Este m√©todo existe por si necesitas l√≥gica al desactivar
+        // Por ahora no hace nada, pero est√° disponible para Animation Events
+        Debug.Log($"{gameObject.name} - Attack hitbox deactivated");
     }
 
     protected virtual void EndAttack()
@@ -360,7 +392,7 @@ public abstract class Enemy : MonoBehaviour
     {
         if (stats == null || !stats.showGizmos) return;
 
-        // Radio de detecciÛn
+        // Radio de detecci√≥n
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, stats.detectionRadius);
 

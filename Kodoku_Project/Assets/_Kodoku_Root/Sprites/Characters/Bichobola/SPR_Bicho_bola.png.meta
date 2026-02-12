@@ -1,0 +1,1287 @@
+fileFormatVersion: 2
+guid: de1d3b793c2782f45b0a2e869ed1db4a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3687117290365456030
+    second: SPR_Bicho_bola_0
+  - first:
+      213: -3078745055648289799
+    second: SPR_Bicho_bola_1
+  - first:
+      213: 1115060572600949321
+    second: SPR_Bicho_bola_2
+  - first:
+      213: -3162145517515092514
+    second: SPR_Bicho_bola_3
+  - first:
+      213: -2597808879913342057
+    second: SPR_Bicho_bola_4
+  - first:
+      213: -4380707807864875489
+    second: SPR_Bicho_bola_5
+  - first:
+      213: -4351047828437111191
+    second: SPR_Bicho_bola_6
+  - first:
+      213: -814476676285935108
+    second: SPR_Bicho_bola_7
+  - first:
+      213: -4972779338391699158
+    second: SPR_Bicho_bola_8
+  - first:
+      213: -5989451583798842822
+    second: SPR_Bicho_bola_9
+  - first:
+      213: 8245506364561829403
+    second: SPR_Bicho_bola_10
+  - first:
+      213: -3884379903173758142
+    second: SPR_Bicho_bola_11
+  - first:
+      213: 4306134014786833842
+    second: SPR_Bicho_bola_12
+  - first:
+      213: -2231240168152321994
+    second: SPR_Bicho_bola_13
+  - first:
+      213: -8693918961575299660
+    second: SPR_Bicho_bola_14
+  - first:
+      213: -9171334317551748976
+    second: SPR_Bicho_bola_15
+  - first:
+      213: -941967355704060708
+    second: SPR_Bicho_bola_16
+  - first:
+      213: -2631171837747976060
+    second: SPR_Bicho_bola_17
+  - first:
+      213: 3675421062545634531
+    second: SPR_Bicho_bola_18
+  - first:
+      213: 820137455844494769
+    second: SPR_Bicho_bola_19
+  - first:
+      213: -5008034344536571061
+    second: SPR_Bicho_bola_20
+  - first:
+      213: 3469631308911255690
+    second: SPR_Bicho_bola_21
+  - first:
+      213: 3043669420857645489
+    second: SPR_Bicho_bola_22
+  - first:
+      213: 3718749217103863047
+    second: SPR_Bicho_bola_23
+  - first:
+      213: 4255833705446226082
+    second: SPR_Bicho_bola_24
+  - first:
+      213: 3128910154637664259
+    second: SPR_Bicho_bola_25
+  - first:
+      213: 1232318398915405281
+    second: SPR_Bicho_bola_26
+  - first:
+      213: -2295599446093037078
+    second: SPR_Bicho_bola_27
+  - first:
+      213: 1135590686285260874
+    second: SPR_Bicho_bola_28
+  - first:
+      213: 1826486554184344784
+    second: SPR_Bicho_bola_29
+  - first:
+      213: -6857875858609135792
+    second: SPR_Bicho_bola_30
+  - first:
+      213: 4221525384898130186
+    second: SPR_Bicho_bola_31
+  - first:
+      213: -2510718179742774327
+    second: SPR_Bicho_bola_32
+  - first:
+      213: -6342351998548526429
+    second: SPR_Bicho_bola_33
+  - first:
+      213: 561714424365163300
+    second: SPR_Bicho_bola_34
+  - first:
+      213: 6727395411491702661
+    second: SPR_Bicho_bola_35
+  - first:
+      213: 3282011242670842617
+    second: SPR_Bicho_bola_36
+  - first:
+      213: -7270833924453483627
+    second: SPR_Bicho_bola_37
+  - first:
+      213: 2785959428857219861
+    second: SPR_Bicho_bola_38
+  - first:
+      213: 3104558271344510419
+    second: SPR_Bicho_bola_39
+  - first:
+      213: 3289648388082863281
+    second: SPR_Bicho_bola_40
+  - first:
+      213: 5851112642568786572
+    second: SPR_Bicho_bola_41
+  - first:
+      213: -6861922165728803125
+    second: SPR_Bicho_bola_42
+  - first:
+      213: 9096478030463537430
+    second: SPR_Bicho_bola_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 327
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261f09e0c5ab4dcc0800000000000000
+      internalID: -3687117290365456030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 327
+        width: 59
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fbe71c0fa91645d0800000000000000
+      internalID: -3078745055648289799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 327
+        width: 60
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94a5ce4dead797f00800000000000000
+      internalID: 1115060572600949321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 327
+        width: 60
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd4b64d76dcd14d0800000000000000
+      internalID: -3162145517515092514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 327
+        width: 60
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79be866669ab2fbd0800000000000000
+      internalID: -2597808879913342057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_5
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 327
+        width: 60
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f161f6f65799433c0800000000000000
+      internalID: -4380707807864875489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_6
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 327
+        width: 60
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e65498d09fd93c0800000000000000
+      internalID: -4351047828437111191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_7
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 327
+        width: 60
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf1d22837c562b4f0800000000000000
+      internalID: -814476676285935108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_8
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 327
+        width: 59
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21c2c4e9832dfab0800000000000000
+      internalID: -4972779338391699158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_9
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 327
+        width: 59
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3ae44c948131eca0800000000000000
+      internalID: -5989451583798842822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 263
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e2eec1a5ced6270800000000000000
+      internalID: 8245506364561829403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_11
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 263
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24379a2fe09e71ac0800000000000000
+      internalID: -3884379903173758142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_12
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 263
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bd8892521672cb30800000000000000
+      internalID: 4306134014786833842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_13
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 263
+        width: 59
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 630b2b083ea0901e0800000000000000
+      internalID: -2231240168152321994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_14
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 263
+        width: 59
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b5754d44cef85780800000000000000
+      internalID: -8693918961575299660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_15
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 263
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0987afda700e8b080800000000000000
+      internalID: -9171334317551748976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_16
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 263
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd4de354ea57de2f0800000000000000
+      internalID: -941967355704060708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_17
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 199
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 488250477233c7bd0800000000000000
+      internalID: -2631171837747976060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_18
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 199
+        width: 59
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e47501bbf7b10330800000000000000
+      internalID: 3675421062545634531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_19
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 202
+        width: 53
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd8a9abba6b16b00800000000000000
+      internalID: 820137455844494769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_20
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 202
+        width: 55
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4301fe1c43ef7ab0800000000000000
+      internalID: -5008034344536571061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_21
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 202
+        width: 55
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80aa35ea4b962030800000000000000
+      internalID: 3469631308911255690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_22
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 199
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b950f356394d3a20800000000000000
+      internalID: 3043669420857645489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_23
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 199
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ddc3ec5b6ab9330800000000000000
+      internalID: 3718749217103863047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 135
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a8b14ce432cf0b30800000000000000
+      internalID: 4255833705446226082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_25
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 135
+        width: 59
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3006a4d353f1c6b20800000000000000
+      internalID: 3128910154637664259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_26
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 146
+        width: 56
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5e7810e031a1110800000000000000
+      internalID: 1232318398915405281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_27
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 146
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae18a0567746420e0800000000000000
+      internalID: -2295599446093037078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_28
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 139
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a48664a66bd62cf00800000000000000
+      internalID: 1135590686285260874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_29
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 135
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d46f2908dbf85910800000000000000
+      internalID: 1826486554184344784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_30
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 71
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05f10edbd3ee3d0a0800000000000000
+      internalID: -6857875858609135792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_31
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 71
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01b52198fed59a30800000000000000
+      internalID: 4221525384898130186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_32
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 71
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cb015d2e13282dd0800000000000000
+      internalID: -2510718179742774327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_33
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 71
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aab606e5707bf7a0800000000000000
+      internalID: -6342351998548526429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_34
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 71
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 423af79fa4c9bc700800000000000000
+      internalID: 561714424365163300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_35
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 71
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5874e85cb728c5d50800000000000000
+      internalID: 6727395411491702661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_36
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 71
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f2eb3c16db0c8d20800000000000000
+      internalID: 3282011242670842617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_37
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 71
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b3718711fc81b90800000000000000
+      internalID: -7270833924453483627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_38
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 78
+        width: 56
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51b4fa30757b9a620800000000000000
+      internalID: 2785959428857219861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_39
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 71
+        width: 59
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d58df39c4b951b20800000000000000
+      internalID: 3104558271344510419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_40
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 71
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc8d9797cd27ad20800000000000000
+      internalID: 3289648388082863281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_41
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 7
+        width: 59
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c821c19a2f3533150800000000000000
+      internalID: 5851112642568786572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_42
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 7
+        width: 59
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc60b53752e85c0a0800000000000000
+      internalID: -6861922165728803125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bicho_bola_43
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 7
+        width: 59
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6119ce0d29e2d3e70800000000000000
+      internalID: 9096478030463537430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_Bicho_bola_0: -3687117290365456030
+      SPR_Bicho_bola_1: -3078745055648289799
+      SPR_Bicho_bola_10: 8245506364561829403
+      SPR_Bicho_bola_11: -3884379903173758142
+      SPR_Bicho_bola_12: 4306134014786833842
+      SPR_Bicho_bola_13: -2231240168152321994
+      SPR_Bicho_bola_14: -8693918961575299660
+      SPR_Bicho_bola_15: -9171334317551748976
+      SPR_Bicho_bola_16: -941967355704060708
+      SPR_Bicho_bola_17: -2631171837747976060
+      SPR_Bicho_bola_18: 3675421062545634531
+      SPR_Bicho_bola_19: 820137455844494769
+      SPR_Bicho_bola_2: 1115060572600949321
+      SPR_Bicho_bola_20: -5008034344536571061
+      SPR_Bicho_bola_21: 3469631308911255690
+      SPR_Bicho_bola_22: 3043669420857645489
+      SPR_Bicho_bola_23: 3718749217103863047
+      SPR_Bicho_bola_24: 4255833705446226082
+      SPR_Bicho_bola_25: 3128910154637664259
+      SPR_Bicho_bola_26: 1232318398915405281
+      SPR_Bicho_bola_27: -2295599446093037078
+      SPR_Bicho_bola_28: 1135590686285260874
+      SPR_Bicho_bola_29: 1826486554184344784
+      SPR_Bicho_bola_3: -3162145517515092514
+      SPR_Bicho_bola_30: -6857875858609135792
+      SPR_Bicho_bola_31: 4221525384898130186
+      SPR_Bicho_bola_32: -2510718179742774327
+      SPR_Bicho_bola_33: -6342351998548526429
+      SPR_Bicho_bola_34: 561714424365163300
+      SPR_Bicho_bola_35: 6727395411491702661
+      SPR_Bicho_bola_36: 3282011242670842617
+      SPR_Bicho_bola_37: -7270833924453483627
+      SPR_Bicho_bola_38: 2785959428857219861
+      SPR_Bicho_bola_39: 3104558271344510419
+      SPR_Bicho_bola_4: -2597808879913342057
+      SPR_Bicho_bola_40: 3289648388082863281
+      SPR_Bicho_bola_41: 5851112642568786572
+      SPR_Bicho_bola_42: -6861922165728803125
+      SPR_Bicho_bola_43: 9096478030463537430
+      SPR_Bicho_bola_5: -4380707807864875489
+      SPR_Bicho_bola_6: -4351047828437111191
+      SPR_Bicho_bola_7: -814476676285935108
+      SPR_Bicho_bola_8: -4972779338391699158
+      SPR_Bicho_bola_9: -5989451583798842822
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
