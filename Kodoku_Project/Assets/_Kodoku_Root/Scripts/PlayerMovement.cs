@@ -1,8 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Splines.ExtrusionShapes;
+using static Unity.Collections.AllocatorManager;
+using static UnityEditorInternal.ReorderableList;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     //! VARIABLES
     [Header("Referencias")]
     public StatsMovement movementStats;
@@ -10,12 +13,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] CameraFollowObject cameraFollowObject;
 
+    // NUEVO - Partículas doble salto
+    [Header("VFX")]
+    [SerializeField] ParticleSystem doubleJumpParticles;
 
     Rigidbody2D rb;
 
-//TODO MOVIMIENTO
-
-
+    //TODO MOVIMIENTO
     public bool isFacingRight { get; private set; }
     public MovementController controller { get; private set; }
     [HideInInspector] public Vector2 Velocity;
@@ -35,34 +39,36 @@ public class PlayerMovement : MonoBehaviour
     float fastFallRelaseSpeed;
     int numberOfJumpsUsed;
 
-//TODO APEX
+    //TODO APEX
     float apexPoint;
     float timePastApexThreshold;
     bool isPastApexThreshold;
 
-//TODO JumpBuffer
+    //TODO JumpBuffer
     float jumpBufferTimer;
     bool jumpRelasedDuringBuffer;
 
-//TODO Coyote Time
+    //TODO Coyote Time
     float coyoteTimer;
 
-//TODO HeadBump
+    //TODO HeadBump
     float jumpStartY;
     bool isHeadBumpSliding;
     int headBumpSlideDirection;
     bool justFinishedSlide;
 
+    // NUEVO - Referencia al combate
+    PlayerCombat playerCombat;
 
     private void Awake()
     {
         isFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<MovementController>();
+        playerCombat = GetComponent<PlayerCombat>(); // NUEVO
 
         _fallSpeedYDampingChangeThreshold = CameraManager.instance._fallSpeedDampingChangeThreshold;
     }
-
 
     private void Update()
     {
@@ -90,10 +96,10 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(Velocity * Time.fixedDeltaTime);
 
-        anim.SetBool("IsGrounded", controller.isGrounded()); anim.SetFloat("VerticalSpeed", Velocity.y);
+        anim.SetBool("IsGrounded", controller.isGrounded());
+        anim.SetFloat("VerticalSpeed", Velocity.y);
 
         // --- CAMERA FALL DAMPING (CINEMACHINE 3) ---
-
         if (Velocity.y < _fallSpeedYDampingChangeThreshold &&
             !CameraManager.instance.IsLerpingYDamping &&
             !CameraManager.instance.LerpedFromPlayerFalling)
@@ -112,7 +118,6 @@ public class PlayerMovement : MonoBehaviour
         //reset inputs
         jumpPressed = false;
         jumpRelased = false;
-
     }
 
     private void ClampVelocity()
@@ -127,11 +132,15 @@ public class PlayerMovement : MonoBehaviour
             DrawJumpArc(movementStats.maxWalkSpeed, Color.blue);
     }
 
-
     #region Movimiento
     private void HandleHorizontalMovement(float timeStep)
     {
         if (isHeadBumpSliding) return;
+
+        // NUEVO - Reducir velocidad durante ataque
+        float speedMultiplier = 1f;
+        if (playerCombat != null && playerCombat.IsAttacking())
+            speedMultiplier = 0.5f; // 50% de velocidad al atacar
 
         TurnCheck(moveInput);
         float targetVelocityX = 0f;
@@ -139,7 +148,10 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(moveInput.x) >= movementStats.moveThreshold)
         {
             float moveDirection = Mathf.Sign(moveInput.x);
-            targetVelocityX = runHeld ? moveDirection * movementStats.maxRunSpeed : moveDirection * movementStats.maxWalkSpeed;
+            // MODIFICADO - Aplicar multiplicador
+            targetVelocityX = runHeld
+                ? moveDirection * movementStats.maxRunSpeed * speedMultiplier
+                : moveDirection * movementStats.maxWalkSpeed * speedMultiplier;
         }
 
         float acceleration = controller.isGrounded() ? movementStats.groundAcceleration : movementStats.airAcceleration;
@@ -159,12 +171,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void TurnCheck(Vector2 moveInput)
-            {
-                if (moveInput.x > 0 && !isFacingRight)
-                    Turn();
-                else if (moveInput.x < 0 && isFacingRight)
-                    Turn();
-            }
+    {
+        if (moveInput.x > 0 && !isFacingRight)
+            Turn();
+        else if (moveInput.x < 0 && isFacingRight)
+            Turn();
+    }
 
     private void Turn()
     {
@@ -183,7 +195,6 @@ public class PlayerMovement : MonoBehaviour
 
         cameraFollowObject.CallTurn();
     }
-
 
     private void HandleHeadBumpSlide()
     {
@@ -227,8 +238,6 @@ public class PlayerMovement : MonoBehaviour
             Velocity.x = headBumpSlideDirection * movementStats.headBumpSlideSpeed;
         }
     }
-
-
     #endregion
 
     #region Caida
@@ -268,11 +277,8 @@ public class PlayerMovement : MonoBehaviour
                 Velocity.y += movementStats.GravityUp * timeStep;
             else
                 Velocity.y += movementStats.GravityDown * timeStep;
-
         }
     }
-
-
     #endregion
 
     #region Salto
@@ -287,50 +293,49 @@ public class PlayerMovement : MonoBehaviour
 
     private void JumpChecks()
     {
-     //TODO BOTON APRETADO
-            if (jumpPressed)
-            {
+        //TODO BOTON APRETADO
+        if (jumpPressed)
+        {
             jumpBufferTimer = movementStats.jumpBufferTime;
             jumpRelasedDuringBuffer = false;
+        }
+
+        //TODO BOTON SOLTADO
+        if (jumpRelased)
+        {
+            if (jumpBufferTimer > 0f)
+            {
+                jumpRelasedDuringBuffer = true;
             }
 
-     //TODO BOTON SOLTADO
-            if (jumpRelased)
+            if (isJumping && Velocity.y > 0f)
             {
-                if(jumpBufferTimer > 0f)
+                if (isPastApexThreshold)
                 {
-                        jumpRelasedDuringBuffer = true;
+                    isPastApexThreshold = false;
+                    isFastFalling = true;
+                    fastFallTime = movementStats.timeForUpwardsCancel;
+                    Velocity.y = Mathf.Min(Velocity.y, 0f);
                 }
-
-                if(isJumping && Velocity.y > 0f)
-                {
-                    if (isPastApexThreshold)
-                    {
-                        isPastApexThreshold = false;
-                        isFastFalling = true;
-                        fastFallTime = movementStats.timeForUpwardsCancel;
-                        Velocity.y = Mathf.Min(Velocity.y, 0f);
-
-                    }
-                    else
-                    {
-                        isFastFalling = true;
-                        fastFallRelaseSpeed = Velocity.y;
-                    }
-                }
-            }
-
-     //TODO INICIAR SALTO CON JUMP BUFFER Y COYOTE
-            if (jumpBufferTimer > 0f && !isJumping && (controller.isGrounded() || coyoteTimer > 0f))
-            {
-                InitiateJump(1);
-
-                if (jumpRelasedDuringBuffer)
+                else
                 {
                     isFastFalling = true;
                     fastFallRelaseSpeed = Velocity.y;
                 }
             }
+        }
+
+        //TODO INICIAR SALTO CON JUMP BUFFER Y COYOTE
+        if (jumpBufferTimer > 0f && !isJumping && (controller.isGrounded() || coyoteTimer > 0f))
+        {
+            InitiateJump(1);
+
+            if (jumpRelasedDuringBuffer)
+            {
+                isFastFalling = true;
+                fastFallRelaseSpeed = Velocity.y;
+            }
+        }
 
         //TODO DOBLE SALTO
         else if (jumpBufferTimer > 0f
@@ -339,15 +344,20 @@ public class PlayerMovement : MonoBehaviour
         {
             isFastFalling = false;
             InitiateJump(1);
+
+            // NUEVO - Emitir partículas en doble salto
+            SpawnDoubleJumpParticles();
         }
 
         //TODO SALTO EN EL AIRE DESPUES DE COYOTE TIME
         else if (jumpBufferTimer > 0f && isFalling && numberOfJumpsUsed < movementStats.jumpsAllowed - 1)
-            {
-                isFastFalling = false;
-                InitiateJump(2);
-            }
+        {
+            isFastFalling = false;
+            InitiateJump(2);
 
+            // NUEVO - Emitir partículas en salto aéreo
+            SpawnDoubleJumpParticles();
+        }
     }
 
     private void InitiateJump(int jumpsToConsume)
@@ -367,6 +377,14 @@ public class PlayerMovement : MonoBehaviour
         jumpStartY = rb.position.y;
     }
 
+    // NUEVO - Método para partículas de doble salto
+    private void SpawnDoubleJumpParticles()
+    {
+        if (doubleJumpParticles != null)
+        {
+            doubleJumpParticles.Play();
+        }
+    }
 
     private void Jump(float timeStep)
     {
@@ -378,7 +396,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (controller.HeadBumpSlideDirection != 0 && !controller.isHittingCeilingCenter && !controller.isHittingBothCorners)
                 {
-
+                    // Nada
                 }
                 else
                 {
@@ -401,7 +419,6 @@ public class PlayerMovement : MonoBehaviour
                     //TODO CONTROLES APEX 
                     float jumpVelUp = Mathf.Sqrt(2f * movementStats.jumpHeight * -movementStats.GravityUp);
                     apexPoint = Mathf.InverseLerp(jumpVelUp, 0f, Velocity.y);
-
 
                     if (apexPoint > movementStats.apexThreshold)
                     {
@@ -444,7 +461,6 @@ public class PlayerMovement : MonoBehaviour
                 else if (isFastFalling)
                 {
                     Velocity.y += movementStats.GravityDown * movementStats.gravitOnRelaseMultiplier * timeStep;
-
                 }
 
                 else if (Velocity.y < 0f)
@@ -452,7 +468,6 @@ public class PlayerMovement : MonoBehaviour
                     if (!isFalling)
                         isFalling = true;
                 }
-
             }
         }
 
@@ -481,7 +496,6 @@ public class PlayerMovement : MonoBehaviour
         float direction = movementStats.drawRight ? 1f : -1f;
         float timeStep = Time.fixedDeltaTime;
 
-        // Velocidad inicial REAL del salto
         float initialVelY = Mathf.Sqrt(2f * movementStats.jumpHeight * -movementStats.GravityUp);
 
         Vector2 velocity = new Vector2(moveSpeed * direction, initialVelY);
@@ -490,19 +504,15 @@ public class PlayerMovement : MonoBehaviour
 
         for (int i = 0; i < movementStats.visualizationSteps; i++)
         {
-            // Aplicar gravedad EXACTA como en tu salto real
             if (velocity.y > 0f)
                 velocity.y += movementStats.GravityUp * timeStep;
             else
                 velocity.y += movementStats.GravityDown * timeStep;
 
-            // Clamp de caída
             velocity.y = Mathf.Max(velocity.y, -movementStats.maxFallSpeed);
 
-            // Mover punto
             Vector2 newPosition = previousPosition + velocity * timeStep;
 
-            // Colisión opcional
             if (movementStats.stopOnCollision)
             {
                 RaycastHit2D hit = Physics2D.Raycast(
@@ -523,13 +533,10 @@ public class PlayerMovement : MonoBehaviour
             previousPosition = newPosition;
         }
     }
-
     #endregion
-
     #endregion
 
     #region Temporizadores
-
     private void CountTimers(float timeStep)
     {
         //buffer
@@ -541,7 +548,5 @@ public class PlayerMovement : MonoBehaviour
         else
             coyoteTimer = movementStats.coyoteTime;
     }
-
     #endregion
-
 }
