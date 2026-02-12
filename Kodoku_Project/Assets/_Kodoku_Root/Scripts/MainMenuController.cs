@@ -8,6 +8,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] ButtonController[] botones;
     [SerializeField] string playSceneName;
     [SerializeField] float navegationCooldown = 0.25f;
+    [SerializeField] Animator backgroundAnimator;
 
     ButtonController currentSelected = null;
     int currentIndex = 0;
@@ -98,6 +99,12 @@ public class MainMenuController : MonoBehaviour
         isLocked = true;
 
         boton.Pressed();
+
+        if (backgroundAnimator != null)
+        {
+            backgroundAnimator.SetBool("isPressed", true);
+        }
+
         yield return new WaitForSeconds(boton.GetPressedAnimationDuration());
 
         //SceneManager.LoadScene(playSceneName);
