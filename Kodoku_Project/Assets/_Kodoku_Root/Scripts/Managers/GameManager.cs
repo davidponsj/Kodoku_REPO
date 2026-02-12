@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
 /// <summary>
@@ -10,7 +10,11 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Health Settings")]
     [SerializeField] int startingMaxHealth = 5;
-    [SerializeField] int healthUpgradeAmount = 2; // Cu�nta vida aumenta cada upgrade
+    [SerializeField] int healthUpgradeAmount = 2; // Cuánta vida aumenta cada upgrade
+
+    [SerializeField] Transform player;
+    [SerializeField] GameObject playerobject;
+
 
     int currentMaxHealth;
     int currentHealth;
@@ -22,6 +26,18 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     PlayerHealth playerHealth;
     PlayerMovement playerMovement;
+    Vector3 respawnPoint;
+
+
+    [Header("Shield Settings")]
+    [SerializeField] int maxShield = 2;
+    [SerializeField] float shieldRegenTimePerPoint = 10f;
+
+    int currentShield;
+    float shieldRegenTimer;
+
+    public event Action<int> OnShieldChanged; // Para PlayerHealth
+
 
     // Eventos para UI
     public event Action<int, int> OnHealthChanged; // (currentHealth, maxHealth)
@@ -30,6 +46,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        currentShield = 0;
+        shieldRegenTimer = 0f;
+        respawnPoint = player.position;
+
         // Singleton pattern
         if (Instance != null && Instance != this)
         {
@@ -45,6 +65,61 @@ public class GameManager : MonoBehaviour
         currentHealth = currentMaxHealth;
         maxJumpsAllowed = startingMaxJumps;
     }
+    public void RespawnPlayer()
+    {
+        // Mover al jugador al respawn
+        player.position = respawnPoint;
+
+        // Restaurar vida
+        currentHealth = currentMaxHealth;
+        OnHealthChanged?.Invoke(currentHealth, currentMaxHealth);
+
+        // Restaurar escudo si quieres
+        currentShield = 0;
+        OnShieldChanged?.Invoke(currentShield);
+
+        // Reactivar player
+        player.GetComponent<PlayerHealth>().Revive();
+    }
+
+
+    void Update()
+    {
+        HandleShieldRegen();
+    }
+
+    public void SetRespawnPoint(Vector3 newPoint)
+    {
+        respawnPoint = newPoint;
+    }
+
+    void HandleShieldRegen()
+    {
+        if (currentShield >= maxShield)
+            return;
+
+        shieldRegenTimer += Time.deltaTime;
+
+        if (shieldRegenTimer >= shieldRegenTimePerPoint)
+        {
+            shieldRegenTimer = 0f;
+            currentShield++;
+
+            OnShieldChanged?.Invoke(currentShield);
+            Debug.Log($"[GameManager] Shield regenerated to {currentShield}");
+        }
+    }
+
+    public void AddShield()
+    {
+        currentShield = maxShield;      // 2 golpes
+        shieldRegenTimer = 0f;          // reiniciar regeneración
+
+        OnShieldChanged?.Invoke(currentShield);
+
+        Debug.Log("[GameManager] Shield restored to FULL!");
+    }
+
 
     void Start()
     {
@@ -76,7 +151,7 @@ public class GameManager : MonoBehaviour
     #region Health Management
 
     /// <summary>
-    /// El player recibe da�o. Llamado por enemigos/bosses.
+    /// El player recibe daño. Llamado por enemigos/bosses.
     /// </summary>
     public void DamagePlayer(int damage, Vector2 damageSourcePosition)
     {
@@ -89,26 +164,49 @@ public class GameManager : MonoBehaviour
         if (playerHealth.IsDead() || playerHealth.IsInvulnerable())
             return;
 
+        // -----------------------------------------
+        // 1. EL ESCUDO ABSORBE EL DAÑO PRIMERO
+        // -----------------------------------------
+        if (currentShield > 0)
+        {
+            currentShield--;                 // Reducir escudo
+            shieldRegenTimer = 0f;           // Reiniciar regeneración
+            OnShieldChanged?.Invoke(currentShield);
+
+            Debug.Log($"[GameManager] Shield absorbed hit. Shield = {currentShield}");
+
+            // Activar efectos visuales de daño (knockback, parpadeo)
+            playerHealth.OnDamageTaken(1, damageSourcePosition);
+
+            return; // No tocar vida
+        }
+
+        // -----------------------------------------
+        // 2. SI NO HAY ESCUDO → DAÑO A LA VIDA
+        // -----------------------------------------
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
 
         Debug.Log($"[GameManager] Player took {damage} damage. HP: {currentHealth}/{currentMaxHealth}");
 
-        // Notificar a PlayerHealth para efectos visuales
+        // Efectos visuales
         playerHealth.OnDamageTaken(damage, damageSourcePosition);
 
-        // Notificar cambio de vida (para UI)
+        // Actualizar UI de vida
         OnHealthChanged?.Invoke(currentHealth, currentMaxHealth);
 
-        // Verificar muerte
+        // -----------------------------------------
+        // 3. COMPROBAR MUERTE
+        // -----------------------------------------
         if (currentHealth <= 0)
         {
             PlayerDied();
         }
     }
 
+
     /// <summary>
-    /// Versi�n simplificada sin conocer la fuente
+    /// Versión simplificada sin conocer la fuente
     /// </summary>
     public void DamagePlayer(int damage)
     {
@@ -141,12 +239,12 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Aumentar la vida M�XIMA del player (power-up permanente)
+    /// Aumentar la vida MÁXIMA del player (power-up permanente)
     /// </summary>
     public void IncreaseMaxHealth()
     {
         currentMaxHealth += healthUpgradeAmount;
-        currentHealth = currentMaxHealth; // Curar al m�ximo al obtener upgrade
+        currentHealth = currentMaxHealth; // Curar al máximo al obtener upgrade
 
         Debug.Log($"[GameManager] Max health increased! New max: {currentMaxHealth}");
 
