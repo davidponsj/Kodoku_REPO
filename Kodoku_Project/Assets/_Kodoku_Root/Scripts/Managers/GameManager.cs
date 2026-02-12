@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] int startingMaxHealth = 5;
     [SerializeField] int healthUpgradeAmount = 2; // Cuánta vida aumenta cada upgrade
 
+    [SerializeField] Transform player;
+    [SerializeField] GameObject playerobject;
+
+
     int currentMaxHealth;
     int currentHealth;
 
@@ -44,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         currentShield = 0;
         shieldRegenTimer = 0f;
-        respawnPoint = player.transform.position; // primer respawn por defecto
+        respawnPoint = player.position;
 
         // Singleton pattern
         if (Instance != null && Instance != this)
@@ -61,6 +65,23 @@ public class GameManager : MonoBehaviour
         currentHealth = currentMaxHealth;
         maxJumpsAllowed = startingMaxJumps;
     }
+    public void RespawnPlayer()
+    {
+        // Mover al jugador al respawn
+        player.position = respawnPoint;
+
+        // Restaurar vida
+        currentHealth = currentMaxHealth;
+        OnHealthChanged?.Invoke(currentHealth, currentMaxHealth);
+
+        // Restaurar escudo si quieres
+        currentShield = 0;
+        OnShieldChanged?.Invoke(currentShield);
+
+        // Reactivar player
+        player.GetComponent<PlayerHealth>().Revive();
+    }
+
 
     void Update()
     {
