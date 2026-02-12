@@ -1,0 +1,1664 @@
+fileFormatVersion: 2
+guid: 6acc6374d85b03d4caacd7c1f4cfdd0d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1945533279776224712
+    second: SP_Player_DJ_ATK_0
+  - first:
+      213: 7710116479235989799
+    second: SP_Player_DJ_ATK_1
+  - first:
+      213: 2786031338747107749
+    second: SP_Player_DJ_ATK_2
+  - first:
+      213: -8474336054561599916
+    second: SP_Player_DJ_ATK_3
+  - first:
+      213: -3766775129645426007
+    second: SP_Player_DJ_ATK_4
+  - first:
+      213: 5658888999838680428
+    second: SP_Player_DJ_ATK_5
+  - first:
+      213: -2797477330828680244
+    second: SP_Player_DJ_ATK_6
+  - first:
+      213: 1644146063662149252
+    second: SP_Player_DJ_ATK_7
+  - first:
+      213: 7628141998135813092
+    second: SP_Player_DJ_ATK_8
+  - first:
+      213: -4547164175137165940
+    second: SP_Player_DJ_ATK_9
+  - first:
+      213: 2960347298882770059
+    second: SP_Player_DJ_ATK_10
+  - first:
+      213: 6879314826720003909
+    second: SP_Player_DJ_ATK_11
+  - first:
+      213: -19986459268694863
+    second: SP_Player_DJ_ATK_12
+  - first:
+      213: 8440512659226399990
+    second: SP_Player_DJ_ATK_13
+  - first:
+      213: 7629973028390069431
+    second: SP_Player_DJ_ATK_14
+  - first:
+      213: 3417857431186340839
+    second: SP_Player_DJ_ATK_15
+  - first:
+      213: -508689980194956916
+    second: SP_Player_DJ_ATK_16
+  - first:
+      213: 4933716740299896309
+    second: SP_Player_DJ_ATK_17
+  - first:
+      213: 2184541252363751044
+    second: SP_Player_DJ_ATK_18
+  - first:
+      213: -8691880099876547199
+    second: SP_Player_DJ_ATK_19
+  - first:
+      213: 5913824373050884782
+    second: SP_Player_DJ_ATK_20
+  - first:
+      213: 7590777879167841874
+    second: SP_Player_DJ_ATK_21
+  - first:
+      213: 7522548309234850548
+    second: SP_Player_DJ_ATK_22
+  - first:
+      213: 2337955098286681275
+    second: SP_Player_DJ_ATK_23
+  - first:
+      213: -529524029339350725
+    second: SP_Player_DJ_ATK_24
+  - first:
+      213: 1211054946037922784
+    second: SP_Player_DJ_ATK_25
+  - first:
+      213: 7261864406030206845
+    second: SP_Player_DJ_ATK_26
+  - first:
+      213: 9075669955436467410
+    second: SP_Player_DJ_ATK_27
+  - first:
+      213: -3021363394660426591
+    second: SP_Player_DJ_ATK_28
+  - first:
+      213: -865086659281869878
+    second: SP_Player_DJ_ATK_29
+  - first:
+      213: -2656461841558756048
+    second: SP_Player_DJ_ATK_30
+  - first:
+      213: -2917847711418532487
+    second: SP_Player_DJ_ATK_31
+  - first:
+      213: -3915282691985077473
+    second: SP_Player_DJ_ATK_32
+  - first:
+      213: 1429158813100905234
+    second: SP_Player_DJ_ATK_33
+  - first:
+      213: -2177960994696669420
+    second: SP_Player_DJ_ATK_34
+  - first:
+      213: 314374942485954426
+    second: SP_Player_DJ_ATK_35
+  - first:
+      213: 7769106543535418349
+    second: SP_Player_DJ_ATK_36
+  - first:
+      213: 2247936390269270662
+    second: SP_Player_DJ_ATK_37
+  - first:
+      213: 5594285416018121471
+    second: SP_Player_DJ_ATK_38
+  - first:
+      213: 7838994166656803589
+    second: SP_Player_DJ_ATK_39
+  - first:
+      213: 4625788236726436520
+    second: SP_Player_DJ_ATK_40
+  - first:
+      213: -2044965415364938261
+    second: SP_Player_DJ_ATK_41
+  - first:
+      213: 2812963895011767719
+    second: SP_Player_DJ_ATK_42
+  - first:
+      213: -6165457029500642147
+    second: SP_Player_DJ_ATK_43
+  - first:
+      213: 487595197113438713
+    second: SP_Player_DJ_ATK_44
+  - first:
+      213: -6164581571666161431
+    second: SP_Player_DJ_ATK_45
+  - first:
+      213: -2246648980426461574
+    second: SP_Player_DJ_ATK_46
+  - first:
+      213: 8676098153818159043
+    second: SP_Player_DJ_ATK_47
+  - first:
+      213: 346394216379613089
+    second: SP_Player_DJ_ATK_48
+  - first:
+      213: 8802918230876535765
+    second: SP_Player_DJ_ATK_49
+  - first:
+      213: -1909526410528690733
+    second: SP_Player_DJ_ATK_50
+  - first:
+      213: -663154911977938829
+    second: SP_Player_DJ_ATK_51
+  - first:
+      213: 2544298085921024754
+    second: SP_Player_DJ_ATK_52
+  - first:
+      213: 6262919337767681199
+    second: SP_Player_DJ_ATK_53
+  - first:
+      213: -3057597200730859214
+    second: SP_Player_DJ_ATK_54
+  - first:
+      213: -7379359328548991047
+    second: SP_Player_DJ_ATK_55
+  - first:
+      213: -6944653587387037398
+    second: SP_Player_DJ_ATK_56
+  - first:
+      213: -647860914256107213
+    second: SP_Player_DJ_ATK_57
+  - first:
+      213: 949747074743722303
+    second: SP_Player_DJ_ATK_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 447
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c533c7c53ceffa10800000000000000
+      internalID: 1945533279776224712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 447
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7212fb18616dffa60800000000000000
+      internalID: 7710116479235989799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_2
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 447
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a99027ddb8f9a620800000000000000
+      internalID: 2786031338747107749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_3
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 447
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e0290e14c156a80800000000000000
+      internalID: -8474336054561599916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 383
+        width: 44
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aa55b01af9b9bbc0800000000000000
+      internalID: -3766775129645426007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_5
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 383
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6500c23099688e40800000000000000
+      internalID: 5658888999838680428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_6
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 383
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3afb4703d5d29d0800000000000000
+      internalID: -2797477330828680244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_7
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 383
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48e6073422e21d610800000000000000
+      internalID: 1644146063662149252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_8
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 383
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3af1f4bba9cd960800000000000000
+      internalID: 7628141998135813092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_9
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 383
+        width: 44
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d219d464a35e0c0800000000000000
+      internalID: -4547164175137165940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_10
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 383
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84d1b90f24451920800000000000000
+      internalID: 2960347298882770059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_11
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 383
+        width: 44
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54749b0036c387f50800000000000000
+      internalID: 6879314826720003909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_12
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 383
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bcb8f2db6ef8bff0800000000000000
+      internalID: -19986459268694863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_13
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 383
+        width: 44
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f490673b89b22570800000000000000
+      internalID: 8440512659226399990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_14
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 383
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b460034b0c13e960800000000000000
+      internalID: 7629973028390069431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_15
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 383
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eb7ace993bae6f20800000000000000
+      internalID: 3417857431186340839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 323
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c89ddad7825c0f8f0800000000000000
+      internalID: -508689980194956916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 322
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f539ff3c35187440800000000000000
+      internalID: 4933716740299896309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_18
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 333
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48e0450e1bc015e10800000000000000
+      internalID: 2184541252363751044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_19
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 321
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1855298c91d306780800000000000000
+      internalID: -8691880099876547199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_20
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 322
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea2cebb3fef121250800000000000000
+      internalID: 5913824373050884782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_21
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 333
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25631b0734cd75960800000000000000
+      internalID: 7590777879167841874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_22
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 255
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fa98a1c4d5756860800000000000000
+      internalID: 7522548309234850548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_23
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 287
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbce03e56c5127020800000000000000
+      internalID: 2337955098286681275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 255
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b39c13b63b0c6a8f0800000000000000
+      internalID: -529524029339350725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_25
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 283
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ebf1169e088ec010800000000000000
+      internalID: 1211054946037922784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_26
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 255
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77cb78c33357c460800000000000000
+      internalID: 7261864406030206845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_27
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 279
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d4d9705db143fd70800000000000000
+      internalID: 9075669955436467410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_28
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 258
+        width: 48
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac95eb1006f116d0800000000000000
+      internalID: -3021363394660426591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_29
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 276
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac3239d44489ef3f0800000000000000
+      internalID: -865086659281869878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_30
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 255
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035a286970a522bd0800000000000000
+      internalID: -2656461841558756048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_31
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 272
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d363447f8b187d0800000000000000
+      internalID: -2917847711418532487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_32
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 255
+        width: 48
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b8efcb22f1aa9c0800000000000000
+      internalID: -3915282691985077473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_33
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 268
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2139f765e5465d310800000000000000
+      internalID: 1429158813100905234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_34
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 255
+        width: 48
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417d270c30456c1e0800000000000000
+      internalID: -2177960994696669420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_35
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 255
+        width: 48
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7fb8253852ec5400800000000000000
+      internalID: 314374942485954426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_36
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 255
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb67952d3961db60800000000000000
+      internalID: 7769106543535418349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_37
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 255
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68a7ca3ac36423f10800000000000000
+      internalID: 2247936390269270662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_38
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 255
+        width: 46
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff298e132f4e2ad40800000000000000
+      internalID: 5594285416018121471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_39
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 191
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50320fb69a3b9cc60800000000000000
+      internalID: 7838994166656803589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_40
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 191
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2824094e9123040800000000000000
+      internalID: 4625788236726436520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_41
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 191
+        width: 35
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be5b6371ac2de93e0800000000000000
+      internalID: -2044965415364938261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_42
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 127
+        width: 37
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a5fc2042c7a90720800000000000000
+      internalID: 2812963895011767719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_43
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 127
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9cdda66f75ef6aa0800000000000000
+      internalID: -6165457029500642147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_44
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 127
+        width: 51
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f112269f3944c600800000000000000
+      internalID: 487595197113438713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_45
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 127
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e05befc8b1037aa0800000000000000
+      internalID: -6164581571666161431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_46
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 63
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7eefa2d7ac42d0e0800000000000000
+      internalID: -2246648980426461574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_47
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 63
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7f0ce8d41b76870800000000000000
+      internalID: 8676098153818159043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_48
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 68
+        width: 58
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af7e8b54b3aec400800000000000000
+      internalID: 346394216379613089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_49
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 68
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dbb43abd7f3a2a70800000000000000
+      internalID: 8802918230876535765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_50
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 65
+        width: 43
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dde533c8dfff75e0800000000000000
+      internalID: -1909526410528690733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_51
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 63
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370ef700f100cc6f0800000000000000
+      internalID: -663154911977938829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_52
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 63
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa670ef0a92f4320800000000000000
+      internalID: 2544298085921024754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_53
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 6
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fac319094fb5ae650800000000000000
+      internalID: 6262919337767681199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_54
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 19
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2395538bb8b3195d0800000000000000
+      internalID: -3057597200730859214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_55
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf4fd7c9cf379990800000000000000
+      internalID: -7379359328548991047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_56
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 3
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2947ab4b52af9f90800000000000000
+      internalID: -6944653587387037398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_57
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 19
+        width: 57
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 339a7e55ee55207f0800000000000000
+      internalID: -647860914256107213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SP_Player_DJ_ATK_58
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 6
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f31e098beed2e2d00800000000000000
+      internalID: 949747074743722303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SP_Player_DJ_ATK_0: 1945533279776224712
+      SP_Player_DJ_ATK_1: 7710116479235989799
+      SP_Player_DJ_ATK_10: 2960347298882770059
+      SP_Player_DJ_ATK_11: 6879314826720003909
+      SP_Player_DJ_ATK_12: -19986459268694863
+      SP_Player_DJ_ATK_13: 8440512659226399990
+      SP_Player_DJ_ATK_14: 7629973028390069431
+      SP_Player_DJ_ATK_15: 3417857431186340839
+      SP_Player_DJ_ATK_16: -508689980194956916
+      SP_Player_DJ_ATK_17: 4933716740299896309
+      SP_Player_DJ_ATK_18: 2184541252363751044
+      SP_Player_DJ_ATK_19: -8691880099876547199
+      SP_Player_DJ_ATK_2: 2786031338747107749
+      SP_Player_DJ_ATK_20: 5913824373050884782
+      SP_Player_DJ_ATK_21: 7590777879167841874
+      SP_Player_DJ_ATK_22: 7522548309234850548
+      SP_Player_DJ_ATK_23: 2337955098286681275
+      SP_Player_DJ_ATK_24: -529524029339350725
+      SP_Player_DJ_ATK_25: 1211054946037922784
+      SP_Player_DJ_ATK_26: 7261864406030206845
+      SP_Player_DJ_ATK_27: 9075669955436467410
+      SP_Player_DJ_ATK_28: -3021363394660426591
+      SP_Player_DJ_ATK_29: -865086659281869878
+      SP_Player_DJ_ATK_3: -8474336054561599916
+      SP_Player_DJ_ATK_30: -2656461841558756048
+      SP_Player_DJ_ATK_31: -2917847711418532487
+      SP_Player_DJ_ATK_32: -3915282691985077473
+      SP_Player_DJ_ATK_33: 1429158813100905234
+      SP_Player_DJ_ATK_34: -2177960994696669420
+      SP_Player_DJ_ATK_35: 314374942485954426
+      SP_Player_DJ_ATK_36: 7769106543535418349
+      SP_Player_DJ_ATK_37: 2247936390269270662
+      SP_Player_DJ_ATK_38: 5594285416018121471
+      SP_Player_DJ_ATK_39: 7838994166656803589
+      SP_Player_DJ_ATK_4: -3766775129645426007
+      SP_Player_DJ_ATK_40: 4625788236726436520
+      SP_Player_DJ_ATK_41: -2044965415364938261
+      SP_Player_DJ_ATK_42: 2812963895011767719
+      SP_Player_DJ_ATK_43: -6165457029500642147
+      SP_Player_DJ_ATK_44: 487595197113438713
+      SP_Player_DJ_ATK_45: -6164581571666161431
+      SP_Player_DJ_ATK_46: -2246648980426461574
+      SP_Player_DJ_ATK_47: 8676098153818159043
+      SP_Player_DJ_ATK_48: 346394216379613089
+      SP_Player_DJ_ATK_49: 8802918230876535765
+      SP_Player_DJ_ATK_5: 5658888999838680428
+      SP_Player_DJ_ATK_50: -1909526410528690733
+      SP_Player_DJ_ATK_51: -663154911977938829
+      SP_Player_DJ_ATK_52: 2544298085921024754
+      SP_Player_DJ_ATK_53: 6262919337767681199
+      SP_Player_DJ_ATK_54: -3057597200730859214
+      SP_Player_DJ_ATK_55: -7379359328548991047
+      SP_Player_DJ_ATK_56: -6944653587387037398
+      SP_Player_DJ_ATK_57: -647860914256107213
+      SP_Player_DJ_ATK_58: 949747074743722303
+      SP_Player_DJ_ATK_6: -2797477330828680244
+      SP_Player_DJ_ATK_7: 1644146063662149252
+      SP_Player_DJ_ATK_8: 7628141998135813092
+      SP_Player_DJ_ATK_9: -4547164175137165940
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

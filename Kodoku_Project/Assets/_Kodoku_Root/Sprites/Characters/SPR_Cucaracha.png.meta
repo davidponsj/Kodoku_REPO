@@ -1,0 +1,1352 @@
+fileFormatVersion: 2
+guid: cb050d7965c9ca0459068a55b34d292a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5154955249311533604
+    second: SPR_Cucaracha_0
+  - first:
+      213: 929959822841869211
+    second: SPR_Cucaracha_1
+  - first:
+      213: -2018465837795067726
+    second: SPR_Cucaracha_2
+  - first:
+      213: -9150303070736101283
+    second: SPR_Cucaracha_3
+  - first:
+      213: -2089252947589354589
+    second: SPR_Cucaracha_4
+  - first:
+      213: 4929007618572150032
+    second: SPR_Cucaracha_5
+  - first:
+      213: -3636437182839814137
+    second: SPR_Cucaracha_6
+  - first:
+      213: -5463498291488006461
+    second: SPR_Cucaracha_7
+  - first:
+      213: -5964561739671583507
+    second: SPR_Cucaracha_8
+  - first:
+      213: 4887367979002762541
+    second: SPR_Cucaracha_9
+  - first:
+      213: 2274920497214656127
+    second: SPR_Cucaracha_10
+  - first:
+      213: 6914292219056760413
+    second: SPR_Cucaracha_11
+  - first:
+      213: -8078488040058780297
+    second: SPR_Cucaracha_12
+  - first:
+      213: -3893433588507541919
+    second: SPR_Cucaracha_13
+  - first:
+      213: -1253816610612000492
+    second: SPR_Cucaracha_14
+  - first:
+      213: -6776183613212961884
+    second: SPR_Cucaracha_15
+  - first:
+      213: -311715812154949869
+    second: SPR_Cucaracha_16
+  - first:
+      213: -3149042027697233435
+    second: SPR_Cucaracha_17
+  - first:
+      213: 7887789918334756735
+    second: SPR_Cucaracha_18
+  - first:
+      213: -4182886334095700578
+    second: SPR_Cucaracha_19
+  - first:
+      213: 213506850151657024
+    second: SPR_Cucaracha_20
+  - first:
+      213: 5538681577517396548
+    second: SPR_Cucaracha_21
+  - first:
+      213: 1083838455933279369
+    second: SPR_Cucaracha_22
+  - first:
+      213: 135588649443942011
+    second: SPR_Cucaracha_23
+  - first:
+      213: -1308050112569802997
+    second: SPR_Cucaracha_24
+  - first:
+      213: 4202118794016465966
+    second: SPR_Cucaracha_25
+  - first:
+      213: 5712935764677102710
+    second: SPR_Cucaracha_26
+  - first:
+      213: -1265439013140900375
+    second: SPR_Cucaracha_27
+  - first:
+      213: 6788691624927465454
+    second: SPR_Cucaracha_28
+  - first:
+      213: 5835841878123327365
+    second: SPR_Cucaracha_29
+  - first:
+      213: 219436474512602765
+    second: SPR_Cucaracha_30
+  - first:
+      213: -6547367658568582004
+    second: SPR_Cucaracha_31
+  - first:
+      213: 822861988660323389
+    second: SPR_Cucaracha_32
+  - first:
+      213: 8631734362774090664
+    second: SPR_Cucaracha_33
+  - first:
+      213: 5981011594105364438
+    second: SPR_Cucaracha_34
+  - first:
+      213: -2759312631489122935
+    second: SPR_Cucaracha_35
+  - first:
+      213: -653557886868707213
+    second: SPR_Cucaracha_36
+  - first:
+      213: 3567896943677889923
+    second: SPR_Cucaracha_37
+  - first:
+      213: -2156186769419877992
+    second: SPR_Cucaracha_38
+  - first:
+      213: -510466582311001926
+    second: SPR_Cucaracha_39
+  - first:
+      213: 4791420991424931737
+    second: SPR_Cucaracha_40
+  - first:
+      213: -625256710528984985
+    second: SPR_Cucaracha_41
+  - first:
+      213: 3607496292688002676
+    second: SPR_Cucaracha_42
+  - first:
+      213: 6468837139548551635
+    second: SPR_Cucaracha_43
+  - first:
+      213: 4300261160199605362
+    second: SPR_Cucaracha_44
+  - first:
+      213: 2610148446144771719
+    second: SPR_Cucaracha_45
+  - first:
+      213: -5896927492005655516
+    second: SPR_Cucaracha_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_Cucaracha_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 131
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42acf34bc741a8740800000000000000
+      internalID: 5154955249311533604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 131
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b93ffdf1881e7ec00800000000000000
+      internalID: 929959822841869211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 131
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b8b6fac308fcf3e0800000000000000
+      internalID: -2018465837795067726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 130
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50db9966d7930180800000000000000
+      internalID: -9150303070736101283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 129
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3abaff4738b7103e0800000000000000
+      internalID: -2089252947589354589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 015ef28605a576440800000000000000
+      internalID: 4929007618572150032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 129
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7088fcc16a7c88dc0800000000000000
+      internalID: -3636437182839814137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_7
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 132
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce57e03041cd24b0800000000000000
+      internalID: -5463498291488006461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 132
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de44df903be993da0800000000000000
+      internalID: -5964561739671583507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 98
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d251413584b63d340800000000000000
+      internalID: 4887367979002762541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_10
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 101
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7e0cb0a324229f10800000000000000
+      internalID: 2274920497214656127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_11
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 100
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d562026c32084ff50800000000000000
+      internalID: 6914292219056760413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_12
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 100
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7750e02ede173ef80800000000000000
+      internalID: -8078488040058780297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_13
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 100
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16efe6097ceb7f9c0800000000000000
+      internalID: -3893433588507541919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_14
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 35
+        width: 52
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 419ccf68f6c899ee0800000000000000
+      internalID: -1253816610612000492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_15
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 99
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a35e91d7e826f1a0800000000000000
+      internalID: -6776183613212961884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_16
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 98
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31fb1a1de109cabf0800000000000000
+      internalID: -311715812154949869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_17
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 98
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e1a45cc5fa5c44d0800000000000000
+      internalID: -3149042027697233435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 66
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f772041b32f077d60800000000000000
+      internalID: 7887789918334756735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_19
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 68
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9dc3608a0763f5c0800000000000000
+      internalID: -4182886334095700578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_20
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 68
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04ee668595786f200800000000000000
+      internalID: 213506850151657024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_21
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 36
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 442bcefac895ddc40800000000000000
+      internalID: 5538681577517396548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_22
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 36
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c9fcf45519a0f00800000000000000
+      internalID: 1083838455933279369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_23
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 36
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e5ea58825b1e100800000000000000
+      internalID: 135588649443942011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_24
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 34
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ffddb5a5fd8dde0800000000000000
+      internalID: -1308050112569802997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_25
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 41
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e24285587cce05a30800000000000000
+      internalID: 4202118794016465966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_26
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c043e3fcc684f40800000000000000
+      internalID: 5712935764677102710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_27
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5d0d01ce1407ee0800000000000000
+      internalID: -1265439013140900375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_28
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eef88799017463e50800000000000000
+      internalID: 6788691624927465454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_29
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58fa3eeb4431df050800000000000000
+      internalID: 5835841878123327365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_30
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d86761a9f489b0300800000000000000
+      internalID: 219436474512602765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_31
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c7321ddc31325a0800000000000000
+      internalID: -6547367658568582004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_32
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3425457e946b6b00800000000000000
+      internalID: 822861988660323389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_33
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a3bea88ba41ac770800000000000000
+      internalID: 8631734362774090664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_34
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df94282b52d00350800000000000000
+      internalID: 5981011594105364438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_35
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98da7d7f7c3f4b9d0800000000000000
+      internalID: -2759312631489122935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_36
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 378290980981ee6f0800000000000000
+      internalID: -653557886868707213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_37
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d5f13ed57b38130800000000000000
+      internalID: 3567896943677889923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_38
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 891c453ae8fa312e0800000000000000
+      internalID: -2156186769419877992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_39
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab025a319557ae8f0800000000000000
+      internalID: -510466582311001926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_40
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 997ab33710c8e7240800000000000000
+      internalID: 4791420991424931737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_41
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 0
+        width: 29
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7689d73a554a257f0800000000000000
+      internalID: -625256710528984985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_42
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 6
+        width: 30
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ef43ec3c6601230800000000000000
+      internalID: 3607496292688002676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_43
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 0
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d935a4ea1de5c950800000000000000
+      internalID: 6468837139548551635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_44
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 0
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c4b1fcdb89dab30800000000000000
+      internalID: 4300261160199605362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_45
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7863f7fbe2c193420800000000000000
+      internalID: 2610148446144771719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cucaracha_46
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 1
+        width: 115
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42c84c470b7e92ea0800000000000000
+      internalID: -5896927492005655516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_Cucaracha_0: 5154955249311533604
+      SPR_Cucaracha_1: 929959822841869211
+      SPR_Cucaracha_10: 2274920497214656127
+      SPR_Cucaracha_11: 6914292219056760413
+      SPR_Cucaracha_12: -8078488040058780297
+      SPR_Cucaracha_13: -3893433588507541919
+      SPR_Cucaracha_14: -1253816610612000492
+      SPR_Cucaracha_15: -6776183613212961884
+      SPR_Cucaracha_16: -311715812154949869
+      SPR_Cucaracha_17: -3149042027697233435
+      SPR_Cucaracha_18: 7887789918334756735
+      SPR_Cucaracha_19: -4182886334095700578
+      SPR_Cucaracha_2: -2018465837795067726
+      SPR_Cucaracha_20: 213506850151657024
+      SPR_Cucaracha_21: 5538681577517396548
+      SPR_Cucaracha_22: 1083838455933279369
+      SPR_Cucaracha_23: 135588649443942011
+      SPR_Cucaracha_24: -1308050112569802997
+      SPR_Cucaracha_25: 4202118794016465966
+      SPR_Cucaracha_26: 5712935764677102710
+      SPR_Cucaracha_27: -1265439013140900375
+      SPR_Cucaracha_28: 6788691624927465454
+      SPR_Cucaracha_29: 5835841878123327365
+      SPR_Cucaracha_3: -9150303070736101283
+      SPR_Cucaracha_30: 219436474512602765
+      SPR_Cucaracha_31: -6547367658568582004
+      SPR_Cucaracha_32: 822861988660323389
+      SPR_Cucaracha_33: 8631734362774090664
+      SPR_Cucaracha_34: 5981011594105364438
+      SPR_Cucaracha_35: -2759312631489122935
+      SPR_Cucaracha_36: -653557886868707213
+      SPR_Cucaracha_37: 3567896943677889923
+      SPR_Cucaracha_38: -2156186769419877992
+      SPR_Cucaracha_39: -510466582311001926
+      SPR_Cucaracha_4: -2089252947589354589
+      SPR_Cucaracha_40: 4791420991424931737
+      SPR_Cucaracha_41: -625256710528984985
+      SPR_Cucaracha_42: 3607496292688002676
+      SPR_Cucaracha_43: 6468837139548551635
+      SPR_Cucaracha_44: 4300261160199605362
+      SPR_Cucaracha_45: 2610148446144771719
+      SPR_Cucaracha_46: -5896927492005655516
+      SPR_Cucaracha_5: 4929007618572150032
+      SPR_Cucaracha_6: -3636437182839814137
+      SPR_Cucaracha_7: -5463498291488006461
+      SPR_Cucaracha_8: -5964561739671583507
+      SPR_Cucaracha_9: 4887367979002762541
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
