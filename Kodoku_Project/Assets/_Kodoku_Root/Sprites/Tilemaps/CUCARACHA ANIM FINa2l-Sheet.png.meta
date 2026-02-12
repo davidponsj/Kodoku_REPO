@@ -1,0 +1,806 @@
+fileFormatVersion: 2
+guid: a10de7c70bc21724081b596985a2f72e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6330085704348504501
+    second: CUCARACHA ANIM FINa2l-Sheet_0
+  - first:
+      213: -3005052071563781507
+    second: CUCARACHA ANIM FINa2l-Sheet_1
+  - first:
+      213: -2225497607042936917
+    second: CUCARACHA ANIM FINa2l-Sheet_2
+  - first:
+      213: -2568385607822665335
+    second: CUCARACHA ANIM FINa2l-Sheet_3
+  - first:
+      213: 2539480231216953805
+    second: CUCARACHA ANIM FINa2l-Sheet_4
+  - first:
+      213: 6041522118800984582
+    second: CUCARACHA ANIM FINa2l-Sheet_5
+  - first:
+      213: -1859385506482539778
+    second: CUCARACHA ANIM FINa2l-Sheet_6
+  - first:
+      213: 6936219091457586773
+    second: CUCARACHA ANIM FINa2l-Sheet_7
+  - first:
+      213: 8675123990939577030
+    second: CUCARACHA ANIM FINa2l-Sheet_8
+  - first:
+      213: -5933365188672965978
+    second: CUCARACHA ANIM FINa2l-Sheet_9
+  - first:
+      213: -9056628611738326178
+    second: CUCARACHA ANIM FINa2l-Sheet_10
+  - first:
+      213: -2465679462218708597
+    second: CUCARACHA ANIM FINa2l-Sheet_11
+  - first:
+      213: 2097249489159999
+    second: CUCARACHA ANIM FINa2l-Sheet_12
+  - first:
+      213: 1279281603247227090
+    second: CUCARACHA ANIM FINa2l-Sheet_13
+  - first:
+      213: 2455876965090962197
+    second: CUCARACHA ANIM FINa2l-Sheet_14
+  - first:
+      213: 1609789556021684649
+    second: CUCARACHA ANIM FINa2l-Sheet_15
+  - first:
+      213: -4229291589815156501
+    second: CUCARACHA ANIM FINa2l-Sheet_16
+  - first:
+      213: -1035657267364789405
+    second: CUCARACHA ANIM FINa2l-Sheet_17
+  - first:
+      213: 7293887047315754600
+    second: CUCARACHA ANIM FINa2l-Sheet_18
+  - first:
+      213: -5213681867084052765
+    second: CUCARACHA ANIM FINa2l-Sheet_19
+  - first:
+      213: -5690552623220199698
+    second: CUCARACHA ANIM FINa2l-Sheet_20
+  - first:
+      213: 3644724589464666819
+    second: CUCARACHA ANIM FINa2l-Sheet_21
+  - first:
+      213: 1729923631679512538
+    second: CUCARACHA ANIM FINa2l-Sheet_22
+  - first:
+      213: 2941425702412007406
+    second: CUCARACHA ANIM FINa2l-Sheet_23
+  - first:
+      213: 7123404315741905670
+    second: CUCARACHA ANIM FINa2l-Sheet_24
+  - first:
+      213: -7373413273382786326
+    second: CUCARACHA ANIM FINa2l-Sheet_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 99
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1987de86bf8d750800000000000000
+      internalID: 6330085704348504501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 99
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a93e6ff09eb46d0800000000000000
+      internalID: -3005052071563781507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 99
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf49b3b7b17d11e0800000000000000
+      internalID: -2225497607042936917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 98
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9891187c5e24b5cd0800000000000000
+      internalID: -2568385607822665335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 97
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc930d7c0db0e3320800000000000000
+      internalID: 2539480231216953805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60a4cc19b5cc7d350800000000000000
+      internalID: 6041522118800984582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 97
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef23999bbb22236e0800000000000000
+      internalID: -1859385506482539778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 100
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 556bc969386624060800000000000000
+      internalID: 6936219091457586773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 100
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca2c669e4b346870800000000000000
+      internalID: 8675123990939577030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 66
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2ba761cc378ada0800000000000000
+      internalID: -5933365188672965978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 69
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ba2bef244605280800000000000000
+      internalID: -9056628611738326178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 68
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b894a74c79528cdd0800000000000000
+      internalID: -2465679462218708597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 68
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f378ec2ff63770000800000000000000
+      internalID: 2097249489159999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 68
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d04e3917dbe0c110800000000000000
+      internalID: 1279281603247227090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 3
+        width: 52
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51baf448617051220800000000000000
+      internalID: 2455876965090962197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 67
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a96ec9721f175610800000000000000
+      internalID: 1609789556021684649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 66
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be04581f4b98e45c0800000000000000
+      internalID: -4229291589815156501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 66
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3638ba5d33b90a1f0800000000000000
+      internalID: -1035657267364789405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 34
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86e0417ff97193560800000000000000
+      internalID: 7293887047315754600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 36
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e64f8417f745a7b0800000000000000
+      internalID: -5213681867084052765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 36
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeeea4df9881701b0800000000000000
+      internalID: -5690552623220199698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c24c2b14b9a49230800000000000000
+      internalID: 3644724589464666819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 4
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf9fc2a06ce10810800000000000000
+      internalID: 1729923631679512538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 4
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee7b87d871b02d820800000000000000
+      internalID: 2941425702412007406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 2
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 603e747db7a6bd260800000000000000
+      internalID: 7123404315741905670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CUCARACHA ANIM FINa2l-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 9
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea6ed1a1bf5ca990800000000000000
+      internalID: -7373413273382786326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CUCARACHA ANIM FINa2l-Sheet_0: 6330085704348504501
+      CUCARACHA ANIM FINa2l-Sheet_1: -3005052071563781507
+      CUCARACHA ANIM FINa2l-Sheet_10: -9056628611738326178
+      CUCARACHA ANIM FINa2l-Sheet_11: -2465679462218708597
+      CUCARACHA ANIM FINa2l-Sheet_12: 2097249489159999
+      CUCARACHA ANIM FINa2l-Sheet_13: 1279281603247227090
+      CUCARACHA ANIM FINa2l-Sheet_14: 2455876965090962197
+      CUCARACHA ANIM FINa2l-Sheet_15: 1609789556021684649
+      CUCARACHA ANIM FINa2l-Sheet_16: -4229291589815156501
+      CUCARACHA ANIM FINa2l-Sheet_17: -1035657267364789405
+      CUCARACHA ANIM FINa2l-Sheet_18: 7293887047315754600
+      CUCARACHA ANIM FINa2l-Sheet_19: -5213681867084052765
+      CUCARACHA ANIM FINa2l-Sheet_2: -2225497607042936917
+      CUCARACHA ANIM FINa2l-Sheet_20: -5690552623220199698
+      CUCARACHA ANIM FINa2l-Sheet_21: 3644724589464666819
+      CUCARACHA ANIM FINa2l-Sheet_22: 1729923631679512538
+      CUCARACHA ANIM FINa2l-Sheet_23: 2941425702412007406
+      CUCARACHA ANIM FINa2l-Sheet_24: 7123404315741905670
+      CUCARACHA ANIM FINa2l-Sheet_25: -7373413273382786326
+      CUCARACHA ANIM FINa2l-Sheet_3: -2568385607822665335
+      CUCARACHA ANIM FINa2l-Sheet_4: 2539480231216953805
+      CUCARACHA ANIM FINa2l-Sheet_5: 6041522118800984582
+      CUCARACHA ANIM FINa2l-Sheet_6: -1859385506482539778
+      CUCARACHA ANIM FINa2l-Sheet_7: 6936219091457586773
+      CUCARACHA ANIM FINa2l-Sheet_8: 8675123990939577030
+      CUCARACHA ANIM FINa2l-Sheet_9: -5933365188672965978
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
