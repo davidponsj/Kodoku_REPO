@@ -1,16 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-/// <summary>
-/// Maneja los efectos visuales del daño (knockback, animación, parpadeo).
-/// La vida se gestiona en GameManager.
-/// </summary>
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Invulnerability")]
     [SerializeField] float invulnerabilityDuration = 1.5f;
     bool isInvulnerable;
     float invulnerabilityTimer;
+
+    [Header("Shield UI Reference")]
+    [SerializeField] ShieldUI shieldUI;
 
     [Header("Knockback")]
     [SerializeField] float knockbackForce = 5f;
@@ -25,12 +24,10 @@ public class PlayerHealth : MonoBehaviour
     PlayerCombat playerCombat;
     bool isDead;
 
-    // Parpadeo visual durante invulnerabilidad
     [Header("Visual Feedback")]
     [SerializeField] float blinkInterval = 0.1f;
     Coroutine blinkCoroutine;
 
-    // Valores locales (sincronizados con GameManager)
     int currentHealth;
     int maxHealth;
 
@@ -39,6 +36,22 @@ public class PlayerHealth : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>();
         playerCombat = GetComponent<PlayerCombat>();
+    }
+
+    void Start()
+    {
+        // Asegurar que el escudo empieza apagado
+        if (shieldUI != null)
+            shieldUI.SetShieldVisual(0);
+
+        // Escuchar cambios de escudo
+        GameManager.Instance.OnShieldChanged += UpdateShieldVisual;
+    }
+
+    void UpdateShieldVisual(int shield)
+    {
+        if (shieldUI != null)
+            shieldUI.SetShieldVisual(shield);
     }
 
     void Update()
@@ -50,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 isInvulnerable = false;
 
-                // Detener parpadeo y asegurar que sprite es visible
+                // Detener parpadeo
                 if (blinkCoroutine != null)
                 {
                     StopCoroutine(blinkCoroutine);
@@ -63,9 +76,29 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Inicializar valores de vida (llamado por GameManager)
-    /// </summary>
+    // ====== NUEVO: DETECCIÓN DE CONTACTO CON ENEMIGOS ======
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Detectar contacto con enemigos (por Layer)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy") && !isInvulnerable && !isDead)
+        {
+            Vector2 enemyPosition = collision.transform.position;
+            GameManager.Instance.DamagePlayer(1, enemyPosition); // 1 de daño por contacto
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        // Daño continuo mientras estás tocando al enemigo
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy") && !isInvulnerable && !isDead)
+        {
+            Vector2 enemyPosition = collision.transform.position;
+            GameManager.Instance.DamagePlayer(1, enemyPosition);
+        }
+    }
+    // ========================================================
+
+    // Inicializar vida desde GameManager
     public void InitializeHealth(int health, int max)
     {
         currentHealth = health;
@@ -75,35 +108,25 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log($"[PlayerHealth] Initialized with {currentHealth}/{maxHealth} HP");
     }
 
-    /// <summary>
-    /// Actualizar vida máxima cuando se obtiene upgrade
-    /// </summary>
     public void UpdateMaxHealth(int newMax)
     {
         maxHealth = newMax;
-        currentHealth = newMax; // Curar al máximo
+        currentHealth = newMax;
     }
 
-    /// <summary>
-    /// Llamado por GameManager cuando el player recibe daño.
-    /// Solo maneja efectos visuales (animación, knockback, parpadeo).
-    /// </summary>
+    // Efectos visuales al recibir daño
     public void OnDamageTaken(int damage, Vector2 damageSourcePosition)
     {
         if (isDead || isInvulnerable) return;
 
-        // Activar invulnerabilidad
         isInvulnerable = true;
         invulnerabilityTimer = invulnerabilityDuration;
 
-        // Activar animación de daño
         if (anim != null)
             anim.SetTrigger("Hit");
 
-        // Aplicar knockback
         ApplyKnockback(damageSourcePosition);
 
-        // Iniciar parpadeo visual
         if (spriteRenderer != null && blinkCoroutine == null)
             blinkCoroutine = StartCoroutine(BlinkEffect());
 
@@ -114,16 +137,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if (rb == null) return;
 
-        // Calcular dirección del knockback (alejarse de la fuente de daño)
         Vector2 knockbackDirection = ((Vector2)transform.position - damageSourcePosition).normalized;
 
-        // Aplicar knockback con componente vertical
         Vector2 knockbackVelocity = new Vector2(
             knockbackDirection.x * knockbackForce,
             knockbackUpForce
         );
 
-        // Sobreescribir velocidad del player
         if (playerMovement != null)
             playerMovement.Velocity = knockbackVelocity;
     }
@@ -138,14 +158,11 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(blinkInterval);
         }
 
-        // Asegurar que sprite queda visible al final
         spriteRenderer.enabled = true;
         blinkCoroutine = null;
     }
 
-    /// <summary>
-    /// Llamado por GameManager cuando el player muere
-    /// </summary>
+    // MUERTE DEL PLAYER
     public void TriggerDeath()
     {
         if (isDead) return;
@@ -154,41 +171,71 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("[PlayerHealth] Death triggered");
 
-        // Activar animación de muerte
         if (anim != null)
             anim.SetTrigger("Die");
 
-        // Detener movimiento
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
 
-        // Desactivar controles
         if (playerMovement != null)
             playerMovement.enabled = false;
 
-        // Desactivar combate
         if (playerCombat != null)
             playerCombat.enabled = false;
 
-        // Desactivar collider después de 2 segundos
         StartCoroutine(DisablePlayerAfterDelay(2f));
+        StartCoroutine(RespawnAfterDelay(2f));
     }
 
     IEnumerator DisablePlayerAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        // Desactivar collider
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
             col.enabled = false;
 
         Debug.Log("[PlayerHealth] Player disabled after death");
-
-        // TODO: Aquí GameManager podría mostrar Game Over
     }
 
-    // Getters públicos
+    IEnumerator RespawnAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        GameManager.Instance.RespawnPlayer();
+    }
+
+    // REVIVIR TRAS RESPAWN
+    public void Revive()
+    {
+        isDead = false;
+
+        // Reactivar controles
+        if (playerMovement != null)
+            playerMovement.enabled = true;
+
+        if (playerCombat != null)
+            playerCombat.enabled = true;
+
+        // Reactivar collider
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+            col.enabled = true;
+
+        // Reset animación
+        if (anim != null)
+            anim.Play("AC_Idle_Player");
+
+        // Reset invulnerabilidad
+        isInvulnerable = false;
+
+        // Asegurar sprite visible
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = true;
+
+        Debug.Log("[PlayerHealth] Player revived");
+    }
+
     public bool IsDead() => isDead;
     public bool IsInvulnerable() => isInvulnerable;
 }
