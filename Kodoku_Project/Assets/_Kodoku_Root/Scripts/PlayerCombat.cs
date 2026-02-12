@@ -1,4 +1,6 @@
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -18,11 +20,15 @@ public class PlayerCombat : MonoBehaviour
     float attackBufferTimer;
     AttackDirection bufferedAttack;
 
+    // NUEVO - Control de hitbox
+    bool hitboxActive;
+    AttackDirection activeHitboxDirection;
+
     // Direcciones de ataque
     public enum AttackDirection { None, Forward, Up, Down }
     AttackDirection currentAttack = AttackDirection.None;
 
-    // Input (capturados en el frame)
+    // Input
     bool attackPressed;
     Vector2 moveInput;
 
@@ -34,11 +40,10 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        // Capturar inputs del InputManager estático
         if (InputManager.attackPressed)
         {
             attackPressed = true;
-            moveInput = InputManager.movement; // Capturar dirección en el momento del ataque
+            moveInput = InputManager.movement;
         }
     }
 
@@ -48,7 +53,12 @@ public class PlayerCombat : MonoBehaviour
         HandleAttackInput();
         UpdateAttack(Time.fixedDeltaTime);
 
-        // Reset input
+        // NUEVO - Solo detectar colisiones cuando la hitbox está activa
+        if (hitboxActive)
+        {
+            CheckHitbox(activeHitboxDirection);
+        }
+
         attackPressed = false;
     }
 
@@ -68,20 +78,16 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!attackPressed) return;
 
-        // Determinar dirección del ataque según input
         AttackDirection direction = DetermineAttackDirection(moveInput);
 
-        // Almacenar en buffer
         attackBufferTimer = combatStats.attackBufferTime;
         bufferedAttack = direction;
 
-        // Intentar ejecutar inmediatamente si es posible
         TryExecuteBufferedAttack();
     }
 
     AttackDirection DetermineAttackDirection(Vector2 input)
     {
-        // Prioridad: Arriba > Abajo > Adelante
         if (input.y > 0.5f)
             return AttackDirection.Up;
         else if (input.y < -0.5f)
@@ -94,12 +100,12 @@ public class PlayerCombat : MonoBehaviour
     {
         if (attackBufferTimer <= 0f) return;
         if (bufferedAttack == AttackDirection.None) return;
+
+        // MODIFICADO - Cooldown previene spam
         if (isAttacking || attackCooldownTimer > 0f) return;
 
-        // Ejecutar ataque
         StartAttack(bufferedAttack);
 
-        // Resetear buffer
         attackBufferTimer = 0f;
         bufferedAttack = AttackDirection.None;
     }
@@ -108,9 +114,13 @@ public class PlayerCombat : MonoBehaviour
     {
         isAttacking = true;
         currentAttack = direction;
+
+        // MODIFICADO - Cooldown se inicia al comenzar el ataque
         attackCooldownTimer = combatStats.attackCooldown;
 
-        // Configurar duración según tipo de ataque
+        // NUEVO - Hitbox desactivada al inicio
+        hitboxActive = false;
+
         switch (direction)
         {
             case AttackDirection.Forward:
@@ -137,12 +147,30 @@ public class PlayerCombat : MonoBehaviour
             EndAttack();
             return;
         }
-
-        // Activar hitbox durante el ataque
-        ActivateHitbox(currentAttack);
     }
 
-    void ActivateHitbox(AttackDirection direction)
+    // ===== NUEVOS MÉTODOS - LLAMADOS POR ANIMATION EVENTS =====
+
+    /// <summary>
+    /// Llamado por Animation Event para activar la hitbox
+    /// </summary>
+    public void ActivateHitbox()
+    {
+        hitboxActive = true;
+        activeHitboxDirection = currentAttack;
+    }
+
+    /// <summary>
+    /// Llamado por Animation Event para desactivar la hitbox
+    /// </summary>
+    public void DeactivateHitbox()
+    {
+        hitboxActive = false;
+    }
+
+    // ===== FIN NUEVOS MÉTODOS =====
+
+    void CheckHitbox(AttackDirection direction)
     {
         Vector2 hitboxSize = Vector2.zero;
         Vector2 hitboxOffset = Vector2.zero;
@@ -163,7 +191,6 @@ public class PlayerCombat : MonoBehaviour
                 break;
         }
 
-        // Invertir offset si mira a la izquierda
         if (!playerMovement.isFacingRight)
             hitboxOffset.x *= -1f;
 
@@ -174,11 +201,11 @@ public class PlayerCombat : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            // Aquí llamarías a TakeDamage() del enemigo
             Debug.Log($"Hit enemy: {hit.name}");
+            // TODO: hit.GetComponent<Enemy>().TakeDamage(damage);
         }
 
-        // POGO específico para ataque hacia abajo
+        // POGO para ataque hacia abajo
         if (direction == AttackDirection.Down)
         {
             Collider2D[] pogoHits = Physics2D.OverlapBoxAll(hitboxCenter, hitboxSize, 0f, combatStats.pogoLayer);
@@ -192,15 +219,12 @@ public class PlayerCombat : MonoBehaviour
 
     void ExecutePogo(Collider2D pogoObject)
     {
-        // Activar animación del farolillo
         Pogo pogo = pogoObject.GetComponent<Pogo>();
         if (pogo != null)
             pogo.Activate();
 
-        // Aplicar impulso hacia arriba al jugador
         playerMovement.Velocity = new Vector2(playerMovement.Velocity.x, combatStats.pogoForce);
 
-        // Cancelar el ataque actual para permitir encadenar otro
         EndAttack();
 
         Debug.Log("Pogo executed!");
@@ -211,20 +235,24 @@ public class PlayerCombat : MonoBehaviour
         isAttacking = false;
         currentAttack = AttackDirection.None;
         attackTimer = 0f;
+
+        // NUEVO - Asegurar que hitbox se desactiva
+        hitboxActive = false;
     }
 
-    // Para que Animator pueda acceder
     public bool IsAttacking() => isAttacking;
 
     void OnDrawGizmos()
     {
         if (combatStats == null) return;
-        if (!combatStats.showHitboxGizmos || !isAttacking) return;
+
+        // MODIFICADO - Solo mostrar cuando hitbox está activa
+        if (!combatStats.showHitboxGizmos || !hitboxActive) return;
 
         Vector2 hitboxSize = Vector2.zero;
         Vector2 hitboxOffset = Vector2.zero;
 
-        switch (currentAttack)
+        switch (activeHitboxDirection)
         {
             case AttackDirection.Forward:
                 hitboxSize = combatStats.forwardHitboxSize;
