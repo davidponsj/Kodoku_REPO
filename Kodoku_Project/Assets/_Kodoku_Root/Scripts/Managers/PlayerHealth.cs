@@ -202,7 +202,7 @@ public class PlayerHealth : MonoBehaviour
 
         // Reset animación
         if (anim != null)
-            anim.Play("Idle");
+            anim.Play("AC_Idle_Player");
 
         // Reset invulnerabilidad
         isInvulnerable = false;
