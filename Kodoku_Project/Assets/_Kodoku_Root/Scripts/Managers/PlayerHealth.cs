@@ -1,16 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-/// <summary>
-/// Maneja los efectos visuales del daño (knockback, animación, parpadeo).
-/// La vida se gestiona en GameManager.
-/// </summary>
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Invulnerability")]
     [SerializeField] float invulnerabilityDuration = 1.5f;
     bool isInvulnerable;
     float invulnerabilityTimer;
+
+    [Header("Shield UI Reference")]
+    [SerializeField] ShieldUI shieldUI;
 
     [Header("Knockback")]
     [SerializeField] float knockbackForce = 5f;
@@ -25,12 +24,10 @@ public class PlayerHealth : MonoBehaviour
     PlayerCombat playerCombat;
     bool isDead;
 
-    // Parpadeo visual durante invulnerabilidad
     [Header("Visual Feedback")]
     [SerializeField] float blinkInterval = 0.1f;
     Coroutine blinkCoroutine;
 
-    // Valores locales (sincronizados con GameManager)
     int currentHealth;
     int maxHealth;
 
@@ -41,7 +38,24 @@ public class PlayerHealth : MonoBehaviour
         playerCombat = GetComponent<PlayerCombat>();
     }
 
-    void Update()
+    void Start()
+    {
+        // IMPORTANTE: evitar null
+        if (shieldUI != null)
+        {
+            shieldUI.SetShieldVisual(0); // empezar apagado
+        }
+
+        GameManager.Instance.OnShieldChanged += UpdateShieldVisual;
+    }
+
+    void UpdateShieldVisual(int shield)
+    {
+        if (shieldUI != null)
+            shieldUI.SetShieldVisual(shield);
+    }
+
+void Update()
     {
         if (isInvulnerable)
         {
