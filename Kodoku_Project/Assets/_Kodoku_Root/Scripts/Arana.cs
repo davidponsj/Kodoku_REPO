@@ -9,22 +9,38 @@ public class Arana : Enemy
     [SerializeField] Vector2 patrolPointA = Vector2.zero;
     [SerializeField] Vector2 patrolPointB = Vector2.zero;
 
+    [Header("Damage Zone")]
+    [SerializeField] GameObject damageZone; // Trigger hijo para hacer daño
+
     protected override void Start()
     {
         base.Start();
 
-        // ARREGLADO - Ignorar colisiones físicas con el player
-        if (playerTransform != null)
+        // Crear damage zone si no existe
+        if (damageZone == null)
         {
-            Collider2D playerCollider = playerTransform.GetComponent<Collider2D>();
-            Collider2D enemyCollider = GetComponent<Collider2D>();
-
-            if (playerCollider != null && enemyCollider != null)
-            {
-                Physics2D.IgnoreCollision(playerCollider, enemyCollider, true);
-                Debug.Log($"[{gameObject.name}] Ignoring collisions with player");
-            }
+            CreateDamageZone();
         }
+    }
+
+    void CreateDamageZone()
+    {
+        // Crear GameObject hijo para el trigger de daño
+        damageZone = new GameObject("DamageZone");
+        damageZone.transform.SetParent(transform);
+        damageZone.transform.localPosition = Vector3.zero;
+        damageZone.layer = LayerMask.NameToLayer("Enemy");
+
+        // Añadir collider como trigger
+        CircleCollider2D triggerCollider = damageZone.AddComponent<CircleCollider2D>();
+        triggerCollider.isTrigger = true;
+        triggerCollider.radius = 0.6f; // Ajustar según tamaño del enemigo
+
+        // Añadir script de daño
+        EnemyDamageZone damageScript = damageZone.AddComponent<EnemyDamageZone>();
+        damageScript.damage = stats.damage;
+
+        Debug.Log($"[{gameObject.name}] DamageZone created");
     }
 
     protected override void SetupPatrolPoints()
@@ -107,5 +123,9 @@ public class Arana : Enemy
             Gizmos.DrawWireSphere(patrolPointB, 0.3f);
             Gizmos.DrawLine(patrolPointA, patrolPointB);
         }
+
+        // Dibujar zona de daño
+        Gizmos.color = new Color(1f, 0f, 0f, 0.3f);
+        Gizmos.DrawWireSphere(transform.position, 0.6f);
     }
 }

@@ -76,6 +76,28 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    // ====== NUEVO: DETECCIÓN DE CONTACTO CON ENEMIGOS ======
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Detectar contacto con enemigos (por Layer)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy") && !isInvulnerable && !isDead)
+        {
+            Vector2 enemyPosition = collision.transform.position;
+            GameManager.Instance.DamagePlayer(1, enemyPosition); // 1 de daño por contacto
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        // Daño continuo mientras estás tocando al enemigo
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy") && !isInvulnerable && !isDead)
+        {
+            Vector2 enemyPosition = collision.transform.position;
+            GameManager.Instance.DamagePlayer(1, enemyPosition);
+        }
+    }
+    // ========================================================
+
     // Inicializar vida desde GameManager
     public void InitializeHealth(int health, int max)
     {
