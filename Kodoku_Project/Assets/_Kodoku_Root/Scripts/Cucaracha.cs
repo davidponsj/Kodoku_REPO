@@ -12,6 +12,24 @@ public class Cucaracha : Enemy
     float patrolWaitTimer;
     bool waitingAtPoint;
 
+    protected override void Start()
+    {
+        base.Start();
+
+        // ARREGLADO - Ignorar colisiones físicas con el player
+        if (playerTransform != null)
+        {
+            Collider2D playerCollider = playerTransform.GetComponent<Collider2D>();
+            Collider2D enemyCollider = GetComponent<Collider2D>();
+
+            if (playerCollider != null && enemyCollider != null)
+            {
+                Physics2D.IgnoreCollision(playerCollider, enemyCollider, true);
+                Debug.Log($"[{gameObject.name}] Ignoring collisions with player");
+            }
+        }
+    }
+
     protected override void SetupPatrolPoints()
     {
         // Si hay puntos custom en el inspector, usarlos
@@ -53,7 +71,7 @@ public class Cucaracha : Enemy
         Vector2 direction = (targetPoint - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * stats.patrolSpeed;
 
-        // Comprobar si lleg� al punto
+        // Comprobar si llegó al punto
         float distance = Vector2.Distance(transform.position, targetPoint);
         if (distance < 0.3f)
         {
@@ -80,7 +98,7 @@ public class Cucaracha : Enemy
         Vector2 direction = (initialPosition - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * stats.chaseSpeed;
 
-        // Si lleg� cerca del punto inicial, volver a Patrol
+        // Si llegó cerca del punto inicial, volver a Patrol
         float distance = Vector2.Distance(transform.position, initialPosition);
         if (distance < 0.5f)
         {
@@ -92,8 +110,6 @@ public class Cucaracha : Enemy
     {
         // Detenerse al atacar
         rb.linearVelocity = Vector2.zero;
-
-        // La animaci�n llamar� a ActivateAttackHitbox() via Animation Event
     }
 
     protected override void OnDrawGizmosSelected()
@@ -111,7 +127,7 @@ public class Cucaracha : Enemy
             {
                 Gizmos.DrawWireSphere(customPatrolPoints[i], 0.3f);
 
-                // L�nea al siguiente punto
+                // Línea al siguiente punto
                 int nextIndex = (i + 1) % customPatrolPoints.Length;
                 Gizmos.DrawLine(customPatrolPoints[i], customPatrolPoints[nextIndex]);
             }
